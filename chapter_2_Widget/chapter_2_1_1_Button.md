@@ -73,7 +73,7 @@
         tk.Button(root, text="width=40, height=1", width=40, height=1).pack()
         tk.Button(root, text="width=20, height=2", width=20, height=2).pack()
         
-    ![](chapter_2_1_4.png)    
+    ![](chapter_2_1_2.png)    
 
 3. `wraplength`和`justify`属性
     
@@ -84,7 +84,7 @@
         tk.Button(root, text="[justify=tk.RIGHT]:\n" + s, wraplength=120, justify=tk.RIGHT).pack(side=tk.LEFT)
         tk.Button(root, text="[justify=tk.LEFT]:\n" + s, wraplength=120, justify=tk.LEFT).pack(side=tk.LEFT)
 
-    ![](chapter_2_1_5.png)
+    ![](chapter_2_1_3.png)
     
     
     
