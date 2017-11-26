@@ -70,7 +70,8 @@
     ![](chapter_2_1_3.png)
     
 2. `width`和`height`属性
-    指定按钮的宽和高。宽是按像素的，高是按行数。其实有方法按像素制定高度，但这里不提。
+    
+    指定按钮的宽和高。宽是按像素的，高是按行数。其实有方法按像素指定高度，但这里不提。
     
         tk.Button(root, text="width=20, height=1", width=20, height=1).pack()
         tk.Button(root, text="width=40, height=1", width=40, height=1).pack()
@@ -78,7 +79,15 @@
         
     ![](chapter_2_1_4.png)    
 
+3. `wraplength`和`justify`属性
+    
+    按钮可以显示多行文字,用`wraplength`指定每行最大宽度，然后`justify`就是左中右对齐用的：
+    
+        tk.Button(root, text="[wraplength=120]:\n" + s, wraplength=120).pack(side=tk.LEFT)
+        tk.Button(root, text="[justify=tk.RIGHT]:\n" + s, wraplength=120, justify=tk.RIGHT).pack(side=tk.LEFT)
+        tk.Button(root, text="[justify=tk.LEFT]:\n" + s, wraplength=120, justify=tk.LEFT).pack(side=tk.LEFT)
 
+    ![](chapter_2_1_5.png)
     
     
     
