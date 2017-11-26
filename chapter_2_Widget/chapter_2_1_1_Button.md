@@ -57,7 +57,7 @@
     
     如果在按钮的声明中没有指定按钮的大小，那么按钮就会把里面的内容包住，一般都是很小的。
     
-    这个就类似于CSS中的`padding`属性，`padx`设置为10，那么就相当于`padding-left = 10px; padding-right=10px;`。
+    这个就类似于CSS中的`padding`属性，`padx`设置为10，那么就相当于`padding-left = 10px; padding-right = 10px;`。
     
         tk.Button(root, text="click me!").pack()
         tk.Button(root, text="click me!(padx=50)", padx=50).pack()
