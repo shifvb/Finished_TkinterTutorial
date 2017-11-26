@@ -83,6 +83,7 @@
     
     按钮可以显示多行文字,用`wraplength`指定每行最大宽度，然后`justify`就是左中右对齐用的：
     
+        s = "The new generation's communist party of PRC "
         tk.Button(root, text="[wraplength=120]:\n" + s, wraplength=120).pack(side=tk.LEFT)
         tk.Button(root, text="[justify=tk.RIGHT]:\n" + s, wraplength=120, justify=tk.RIGHT).pack(side=tk.LEFT)
         tk.Button(root, text="[justify=tk.LEFT]:\n" + s, wraplength=120, justify=tk.LEFT).pack(side=tk.LEFT)
