@@ -57,17 +57,13 @@
     
     如果在按钮的声明中没有指定按钮的大小，那么按钮就会把里面的内容包住，一般都是很小的。
     
-    ![](chapter_2_1_1.png)
-    
     这个就类似于CSS中的`padding`属性，`padx`设置为10，那么就相当于`padding-left = 10px; padding-right=10px;`。
     
-    `btn = tk.Button(root, text="click me!", padx=50)`的效果如下：
+        tk.Button(root, text="click me!").pack()
+        tk.Button(root, text="click me!(padx=50)", padx=50).pack()
+        tk.Button(root, text="click me!\npady=50", pady=50).pack()
     
-    ![](chapter_2_1_2.png)
-    
-    `btn = tk.Button(root, text="click me!", pady=50)`的效果如下：
-    
-    ![](chapter_2_1_3.png)
+    ![](chapter_2_1_1.png)
     
 2. `width`和`height`属性
     
