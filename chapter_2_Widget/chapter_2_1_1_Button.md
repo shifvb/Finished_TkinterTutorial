@@ -85,6 +85,23 @@
         tk.Button(root, text="[justify=tk.LEFT]:\n" + s, wraplength=120, justify=tk.LEFT).pack(side=tk.LEFT)
 
     ![](chapter_2_1_3.png)
+
+4. `relief`属性
+    
+    都有什么可能的属性呢?可以通过试错的方式：
+    
+        _tkinter.TclError: bad relief "fat": must be flat, groove, raised, ridge, solid, or sunken
+
+    那么效果如下：
+        
+        tk.Button(root, text="flat", relief="flat").pack()
+        tk.Button(root, text="groove", relief="groove").pack()
+        tk.Button(root, text="raised", relief="raised").pack()
+        tk.Button(root, text="ridge", relief="ridge").pack()
+        tk.Button(root, text="solid", relief="solid").pack()
+        tk.Button(root, text="sunken", relief="sunken").pack()
+        
+    ![](chapter_2_1_4.png)
     
     
     
