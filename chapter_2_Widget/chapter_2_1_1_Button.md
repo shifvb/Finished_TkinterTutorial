@@ -63,7 +63,7 @@
         tk.Button(root, text="click me!(padx=50)", padx=50).pack()
         tk.Button(root, text="click me!\npady=50", pady=50).pack()
     
-    ![](chapter_2_1_1.png)
+    ![](static/chapter_2_1_1.png)
     
 2. `width`和`height`属性
     
@@ -73,7 +73,7 @@
         tk.Button(root, text="width=40, height=1", width=40, height=1).pack()
         tk.Button(root, text="width=20, height=2", width=20, height=2).pack()
         
-    ![](chapter_2_1_2.png)    
+    ![](static/chapter_2_1_2.png)    
 
 3. `wraplength`和`justify`属性
     
@@ -84,7 +84,7 @@
         tk.Button(root, text="[justify=tk.RIGHT]:\n" + s, wraplength=120, justify=tk.RIGHT).pack(side=tk.LEFT)
         tk.Button(root, text="[justify=tk.LEFT]:\n" + s, wraplength=120, justify=tk.LEFT).pack(side=tk.LEFT)
 
-    ![](chapter_2_1_3.png)
+    ![](static/chapter_2_1_3.png)
 
 4. `relief`属性
     
@@ -101,7 +101,7 @@
         tk.Button(root, text="solid", relief="solid").pack()
         tk.Button(root, text="sunken", relief="sunken").pack()
         
-    ![](chapter_2_1_4.png)
+    ![](static/chapter_2_1_4.png)
     
     
     

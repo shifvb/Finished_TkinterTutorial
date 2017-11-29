@@ -2,7 +2,7 @@
 
 这是一种风格
 
-![](chapter_1_1_1.png)
+![](static/chapter_1_1_1.png)
 
     import tkinter as tk
     
@@ -22,7 +22,7 @@
 
 另一种风格：
 
-![](chapter_1_1_2.png)
+![](static/chapter_1_1_2.png)
     
     import tkinter as tk
     
