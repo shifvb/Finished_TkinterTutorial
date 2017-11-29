@@ -51,3 +51,17 @@
         tk.Label(root, text="Hello Tkinter!", fg="#999989", bg="yellow").pack()
 
     ![](static/chapter_2_2_2.png)
+    
+3. `font`:
+
+    设置字体样式
+    
+        tk.Label(root, text="Hello Tkinter!").pack()
+        from tkinter.font import Font
+        tk.Label(root, text="Hello Tkinter!", font=Font(family="times", size=30, weight=font.BOLD)).pack()
+        tk.Label(root, text="Hello Tkinter!", font=("Courier", 20, "bold")).pack()
+    
+    ![](static/chapter_2_2_3.png)
+     
+    
+   
