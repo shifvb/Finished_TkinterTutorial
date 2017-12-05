@@ -60,3 +60,18 @@
         demo_btn.pack()
 
     ![](static/a69c3a10cdaf1e40e8db7f40016130f8.png)
+    
+2. `onvalue`和`offvalue`
+
+    值得注意的是，Checkbutton不仅可以绑定`tk.Intvar`，还可以绑定`tk.Stringvar`。
+    
+    设定`onvalue`和`offvalue`为特定的字符串，然后通过改变绑定变量的值，可以控制Checkbutton的选定状态。
+    
+        # 这个就是声明的变量
+        my_strvar = tk.StringVar(value="unmeaning string")
+        # 这个是复选按钮
+        tk.Checkbutton(root, text="male", variable=my_strvar, onvalue="on", offvalue="off").pack()
+        # 然后添加一个按钮，其文字在按下时,将声明变量的值设为"on"
+        tk.Button(root, text="set the checkbutton on", command=lambda: my_strvar.set("on")).pack()
+
+    ![](static/6adc9c10f8feec90c88ca7f68be57bb0.PNG)
