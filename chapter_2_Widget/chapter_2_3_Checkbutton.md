@@ -63,7 +63,7 @@
     
 2. `onvalue`和`offvalue`
 
-    值得注意的是，Checkbutton不仅可以绑定`tk.Intvar`，还可以绑定`tk.Stringvar`。
+    值得注意的是，Checkbutton不仅可以绑定`tk.IntVar`，还可以绑定`tk.StringVar`。
     
     设定`onvalue`和`offvalue`为特定的字符串，然后通过改变绑定变量的值，可以控制Checkbutton的选定状态。
     
@@ -74,4 +74,4 @@
         # 然后添加一个按钮，其文字在按下时,将声明变量的值设为"on"
         tk.Button(root, text="set the checkbutton on", command=lambda: my_strvar.set("on")).pack()
 
-    ![](static/6adc9c10f8feec90c88ca7f68be57bb0.PNG)
+    ![](static/6adc9c10f8feec90c88ca7f68be57bb0.png)
