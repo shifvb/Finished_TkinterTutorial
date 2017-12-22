@@ -60,6 +60,6 @@
         btn = tk.Button(root, text="show value", command=_btn_callback)
         btn.pack()
         
-    ![](static/3f61ed195316c038df3eaf133df2e54d.PNG)
+    ![](static/3f61ed195316c038df3eaf133df2e54d.png)
         
     
