@@ -40,7 +40,7 @@
         tk.Label(root, text="Hello Tkinter!", width=8, height=2, bg="#7777dd").pack()
         tk.Label(root, text="Hello Tkinter!", width=20, height=1, bg="green").pack()
         
-    ![](static/chapter_2_2_1.png)
+    ![](static/24596b1c9f68b9ed79fc45ca9dbfacd5.png)
     
 2. `bg`和`fg`:
     
@@ -50,7 +50,7 @@
         tk.Label(root, text="Hello Tkinter!", bg="gray").pack()
         tk.Label(root, text="Hello Tkinter!", fg="#999989", bg="yellow").pack()
 
-    ![](static/chapter_2_2_2.png)
+    ![](static/c5699c2452b7536092540a17a7149473.png)
     
 3. `font`:
 
@@ -61,7 +61,7 @@
         tk.Label(root, text="Hello Tkinter!", font=Font(family="times", size=30, weight=font.BOLD)).pack()
         tk.Label(root, text="Hello Tkinter!", font=("Courier", 20, "bold")).pack()
     
-    ![](static/chapter_2_2_3.png)
+    ![](static/21330a6bcbe5bb1dbcf1105ee2d30192.png)
      
     
    
