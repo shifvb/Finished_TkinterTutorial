@@ -41,3 +41,16 @@
 
 ![](static/a853e222835e9e892e97a599e332870d.png)
 
+
+2. 弹出菜单
+
+和通常的菜单栏不同，使用`post()`方法弹出菜单：
+    
+    # 绑定鼠标右键
+    root.bind("<Button-3>", lambda event: menu.post(event.x_root, event.y_root))
+    
+    # 定义弹出菜单
+    menu = tk.Menu(root, tearoff=0)
+    menu.add_command(label="Operation", command=lambda: print("Operation"))
+
+![](static/80eedaa6140fcb06befcd760d65b958b.png)
