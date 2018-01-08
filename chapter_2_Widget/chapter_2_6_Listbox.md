@@ -69,7 +69,7 @@
     
     `tk.MULTIPLE`   ：多选，只能通过鼠标单击改变选定项
     
-    `tk.EXTENDED`   ：多选，除通过鼠标单击改变选定项外，还能相应鼠标拖动、`Ctrl`和`Shift`
+    `tk.EXTENDED`   ：多选，除通过鼠标单击改变选定项外，还能响应鼠标拖动、`Ctrl`和`Shift`
     
         listbox = tk.Listbox(root, selectmode=tk.EXTENDED)
         listbox.pack()
