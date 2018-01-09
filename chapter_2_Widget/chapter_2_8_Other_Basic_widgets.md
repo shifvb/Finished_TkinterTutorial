@@ -23,8 +23,6 @@
     
     也可以使用`values`属性指定输入范围(非强制，用户直接输入可以越界)：
     
-    (非强制，用户直接输入可以越界)：
-    
         sb = tk.Spinbox(root, values=[-1, 2, 3, 10], font=font.Font(size=100))
         sb.pack()
         # 用来显示Spinbox当前值的label
