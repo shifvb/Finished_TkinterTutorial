@@ -20,3 +20,19 @@
         tk.Button(root, text="show spinbox value",command=btn_callback).pack()
 
     ![](static/4be2ff19298e36005d275e9382b5b86a.png)
+    
+    也可以使用`values`属性指定输入范围(非强制，用户直接输入可以越界)：
+    
+    (非强制，用户直接输入可以越界)：
+    
+        sb = tk.Spinbox(root, values=[-1, 2, 3, 10], font=font.Font(size=100))
+        sb.pack()
+        # 用来显示Spinbox当前值的label
+        label = tk.Label(root, text="current value: ")
+        label.pack()
+        # 点击按钮显示Spinbox当前值
+        def btn_callback():
+            label.config(text="current value: {}".format(sb.get()))
+        tk.Button(root, text="show spinbox value", command=btn_callback).pack()
+    
+    ![](static/e54a14c9581c8ef1a5c54a10b4826569.png)
