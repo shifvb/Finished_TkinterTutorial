@@ -36,3 +36,19 @@
         tk.Button(root, text="show spinbox value", command=btn_callback).pack()
     
     ![](static/e54a14c9581c8ef1a5c54a10b4826569.png)
+    
+2. `tk.Scale`
+
+    使用拖动方式确定用户输入，可以使用`from_`属性和`to`属性指定值域，而`orient`属性指定方向
+    
+        s = tk.Scale(root, from_=-4, to=4, orient=tk.HORIZONTAL)
+        s.pack()
+        # 显示当前Scale的值
+        label = tk.Label(root, text="current value")
+        label.pack()
+        def btn_callback():
+            label.configure(text="current value: {}".format(s.get()))
+        tk.Button(root, text="show current value", command=btn_callback).pack()
+
+    ![](static/15af3b304ba161623074dae16f2fc836.png)
+    
