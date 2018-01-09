@@ -51,4 +51,19 @@
         tk.Button(root, text="show current value", command=btn_callback).pack()
 
     ![](static/15af3b304ba161623074dae16f2fc836.png)
+
+3. `tk.OptionMenu`
+
+    显示一个看起来很过时的下拉菜单
     
+        v = tk.StringVar(value="apple")
+        om = tk.OptionMenu(root, v, "doge", "neko")
+        om.pack()
+        # 显示当前OptionMenu的值
+        label = tk.Label(root, text="current value")
+        label.pack()
+        def btn_callback():
+            label.configure(text="current value: {}".format(v.get()))
+        tk.Button(root, text="show current value", command=btn_callback).pack()
+        
+    ![](static/f4301eb598284f5d84ee2eac1fae247e.png)    
