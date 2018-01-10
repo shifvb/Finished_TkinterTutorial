@@ -18,7 +18,7 @@
 ![](static/d2b9da6d207cdd35b48e27d39708eb77.png)
 
 
-2. `fill`参数
+2. `fill`和`expand`参数
 
 使用`fill`参数可以将每个控件的宽度/高度统一，共三种:`tk.X`，`tk.Y`，`tk.BOTH`
 
@@ -32,6 +32,17 @@
     label_3.pack(fill=tk.X)
 
 ![](static/459007b6ab6ad5127cdf7b7822dab9bf.png)
+
+而`expand`属性设置为1的时候，那么控件将尽可能居中，此时可以使用`fill`充填空间
+
+        label_1 = tk.Label(root, text="communism", bg="#ff9999")
+        label_1.pack(expand=1, fill=tk.X)
+        label_2 = tk.Label(root, text="socialism", bg="cyan")
+        label_2.pack(expand=1, fill=tk.Y)
+        label_3 = tk.Label(root, text="capitalism", bg="#9999ff")
+        label_3.pack(expand=1, fill=tk.BOTH)
+        
+![](static/d5502512b7e9fea0e90097fcda23540d.png)
 
 3. `side`参数
 
