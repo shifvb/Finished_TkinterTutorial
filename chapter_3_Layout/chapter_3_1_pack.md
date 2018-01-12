@@ -1,5 +1,6 @@
-###`tkinter`支持三种布局管理方式`pack`，`grid`和`place`。
-首先从`pack`开始介绍。
+### pack布局
+
+`tkinter`支持三种布局管理方式`pack`，`grid`和`place`。首先从`pack`开始介绍。
 
 ---------------------
 
