@@ -43,7 +43,7 @@
     
 4. `sticky`
 
-    `sticky`控制控件的对齐方式，可选值为`tk.N`，`tk.S`,`tk.E`和`tk.W`及其组合。
+    `sticky`控制控件的对齐方式，可选值为`tk.N`，`tk.S`，`tk.E`和`tk.W`及其组合。
     
     如果在相对方向上指定(`tk.NS`，`tk.EW`，`tk.NSEW`)，那么会有填充效果。
     
