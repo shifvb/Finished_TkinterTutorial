@@ -1,5 +1,7 @@
 ### place布局
+
 使用`place`布局直接指定控件相对于父控件的位置。不建议使用。
+
 --------------------
 
 
@@ -16,7 +18,7 @@
         label_3 = tk.Label(root, text="capitalism", bg="#9999ff")
         label_3.place(x=10, y=10, width=100, height=100)
 
-![](static/3ffdc1c018b4dd37134123854c21eb35.png)
+    ![](static/3ffdc1c018b4dd37134123854c21eb35.png)
 
 2. `relx`, `rely`, `anchor`属性
     
