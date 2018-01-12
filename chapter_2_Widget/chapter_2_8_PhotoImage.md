@@ -14,4 +14,4 @@
 
     ![](static/1d1aff21e24fae85b603cf6dae818a9b.png)
 
-    [original image](static/1d1aff21e24fae85b603cf6dae818a9b.png)
+    [original image](static/77654ffb2eabc662ee1dc5651ec31991.jpg)
