@@ -34,4 +34,4 @@
         label_3 = tk.Label(root, text="capitalism", bg="#9999ff")
         label_3.place(relx=0.5, rely=0.5, anchor=tk.CENTER, width=100, height=100)
         
-    ![](static/17ed5e5b0e959589fc66cf226761a6f6.PNG)
+    ![](static/17ed5e5b0e959589fc66cf226761a6f6.png)

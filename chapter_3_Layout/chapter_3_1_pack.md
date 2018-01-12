@@ -59,7 +59,7 @@
     label_3 = tk.Label(root, text="capitalism", bg="#9999ff")
     label_3.pack(fill=tk.Y, side=tk.LEFT)
 
-![](static/982e1c0cac5d908e9d179e505c06e23d.PNG)
+![](static/982e1c0cac5d908e9d179e505c06e23d.png)
 
 而`expand`属性设置为1的时候，`side`属性无效，控件默认居中，此时可以使用`fill`充填水平或垂直方向。
 
