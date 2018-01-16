@@ -61,29 +61,34 @@
 
     `validate`负责何时调用`validatecommand`属性绑定的回调函数。共有6种模式：
     
-    key：当Entry控件被编辑的时候调用
+        key：当Entry控件被编辑的时候调用
+        focus：当Entry控件获得焦点或者失去焦点时调用
+        focusin：当Entry控件获得焦点时调用
+        focusout：当Entry控件失去焦点时调用
+        all：上述所有情况都调用
+        none：上述所有情况都不调用
     
-    focus：当Entry控件获得焦点或者失去焦点时调用
-
-    focusin：当Entry控件获得焦点时调用
-        
-    focusout：当Entry控件失去焦点时调用
+    下例实现了当用户输入一个字符，就调用一次`validatecommand()`函数
     
-    all：上述所有情况都调用
-    
-    none：上述所有情况都不调用
-    
-        # 用来验证用户输入的函数
-        def validatecommand():
-            label['text'] += "\n{}".format(validatecommand)
+        # 验证用户输入的回调函数
+        def validate_callback():
+            label['text'] += "\n{}".format(validate_callback)
             return True
         # 用来绑定Entry的变量
         v = tk.StringVar()
-        tk.Entry(root, textvariable=v, validate="key", validatecommand=validatecommand).grid(row=0, column=0)
+        entry = tk.Entry(root, textvariable=v, validate="key", validatecommand=validate_callback)
+        entry.grid(row=0, column=0)
         # Label
         label = tk.Label(root, text="content: ")
         label.grid(row=1, column=0)
         
     ![](static/eb2aaf429e6b595071946825a8951735.gif)
+    
+    属性`validatecommand`绑定的回调函数被调用后，
+    
+    如果返回`True`或者其它非`False`值，那么用户的输入就会正常显示在`Entry`中；
+    
+    如果返回`False`，那么用户的输入就会被废弃掉，并调用`invalidcommand`属性绑定的回调函数(如果有的话)
+    
     
     
