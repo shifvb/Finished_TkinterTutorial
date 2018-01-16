@@ -59,9 +59,9 @@
 
 4. 设置`validate`，`validatecommand`和`invalidcommand`选项验证输入内容
 
-    `validate`负责何时调用`validatecommand`属性绑定的回调函数：
+    `validate`负责何时调用`validatecommand`属性绑定的回调函数。共有6种模式：
     
-    key：当输入框被编辑的时候调用
+    key：当Entry控件被编辑的时候调用
     
     focus：当Entry控件获得焦点或者失去焦点时调用
 
