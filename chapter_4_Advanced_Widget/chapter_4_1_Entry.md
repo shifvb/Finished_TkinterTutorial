@@ -57,7 +57,42 @@
         
     ![](static/bb7aa36d5eda46e2f09ef4747b44d8f1.png)
 
-4. 设置`validate`，`validatecommand`和`invalidcommand`选项验证输入内容
+4. 使用`insert()`和`delete()`函数改变`Entry`内容
+
+    `delete(self, first, last=None)`有两个参数，第一个是`first`，第二个是`last`(可不填)。
+    和Python中列表(list)相同，`delete()`会删除从`first`(包含)到`last`(不包含)的所有内容。
+    
+    下例按钮通过`first=0, last=tk.END`，清除了`Entry`中所有内容：
+    
+        v = tk.StringVar()
+        entry = tk.Entry(root, textvariable=v)
+        entry.grid(row=0, column=0)
+        # 按钮
+        tk.Button(root, text="clear", command=lambda: entry.delete(0, tk.END)).grid(row=0, column=1)
+    
+    ![](static/610cd8eea52f26d5de5f3bc8d1ae1835.gif)
+    
+    为了正确使用`insert()`函数，下面介绍一下索引的类型。tkinter提供了5种指定字符位置(索引)的方法：
+    
+        数字        : 整数，比如0
+        tk.END      : 最后一个字符的后面
+        tk.ANCHOR   : 当前被选定的一段字符 的 开始的位置(如果有的话)，可以使用select_from()函数设定选定位置
+        tk.INSERT   ; 当前光标位置(如果有的话)，可以使用icursor()函数设置当前光标位置
+        鼠标坐标("@x")  : 直接指定插入字符相对于Entry左侧的距离(像素)。
+        
+    那么本例演示使用数字0和`tk.END`指定插入位置：
+    
+        v = tk.StringVar()
+        entry = tk.Entry(root, textvariable=v)
+        entry.grid(row=0, column=0)
+        # 在开头插入一些字符
+        entry.insert(0, "请输入字符")  
+        # 点击按钮在末尾插入一些字符
+        tk.Button(root, text="insert", command=lambda: entry.insert(tk.END, "neko")).grid(row=0, column=2)
+    
+    ![](static/dc8865a7e094f2681e25523fefc6e160.png)
+
+5. 设置`validate`，`validatecommand`和`invalidcommand`选项验证输入内容
 
     `validate`负责何时调用`validatecommand`属性绑定的回调函数。共有6种模式：
     
@@ -149,17 +184,3 @@
     
     ![](static/eda1c3eb440f825add90d03ab212335c.gif)
 
-5. 使用`insert()`和`delete()`函数改变`Entry`内容
-
-    `delete(self, first, last=None)`有两个参数，第一个是`first`，第二个是`last`(可不填)。
-    和Python中列表(list)相同，`delete()`会删除从`first`(包含)到`last`(不包含)的所有内容。
-    
-    下例按钮通过`first=0, last=tk.END`，清除了`Entry`中所有内容：
-    
-        v = tk.StringVar()
-        entry = tk.Entry(root, textvariable=v)
-        entry.grid(row=0, column=0)
-        # 按钮
-        tk.Button(root, text="clear", command=lambda: entry.delete(0, tk.END)).grid(row=0, column=1)
-    
-    ![](static/610cd8eea52f26d5de5f3bc8d1ae1835.gif)
