@@ -148,3 +148,18 @@
         label.grid(row=1, column=0)
     
     ![](static/eda1c3eb440f825add90d03ab212335c.gif)
+
+5. 使用`insert()`和`delete()`函数改变`Entry`内容
+
+    `delete(self, first, last=None)`有两个参数，第一个是`first`，第二个是`last`(可不填)。
+    和Python中列表(list)相同，`delete()`会删除从`first`(包含)到`last`(不包含)的所有内容。
+    
+    下例按钮通过`first=0, last=tk.END`，清除了`Entry`中所有内容：
+    
+        v = tk.StringVar()
+        entry = tk.Entry(root, textvariable=v)
+        entry.grid(row=0, column=0)
+        # 按钮
+        tk.Button(root, text="clear", command=lambda: entry.delete(0, tk.END)).grid(row=0, column=1)
+    
+    ![](static/610cd8eea52f26d5de5f3bc8d1ae1835.gif)
