@@ -36,8 +36,6 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         tk.Text(root, width=30, height=12, bg="black", fg="#16c60c", font=tk.font.Font(size=15)).pack()
     
     ![](static/5a1254c1de0c308d51fe97c18ba64f8d.png)
-    
-        
 
 
 3. 索引方式
@@ -45,11 +43,31 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
     `tk.Text`的索引方式和`tk.Entry`类似
     
     值得注意的是，line(行索引)从1开始，而column(列索引)和`tk.Entry`相同，从0开始。
-    指定越界索引不会报错，而是会“粘”到最近的位置
+    指定越界索引不会报错，而是会“粘”到最近的位置。共有11种索引类型：
     
         "{line}.{column}"
         "{line}.end"
-
+        tk.INSERT
+        tk.CURRENT
+        tk.END
+        用户定义的marks
+        用户定义的tags("tag.first", "tag.last")
+        selection(SEL_FIRST, SEL_LAST)
+        窗口坐标("@x,y")
+        嵌入对象(窗口，对象)的名称
+        表达式
+        
+    "{line}.{column}"是最基本的索引方式。
+    
+        text = tk.Text(root, width=30, height=12)
+        text.pack()
+        text.insert("1.0", "capitalism,socialism\ncommunism and anarchism")
+        # 按钮回调函数
+        def btn_callback(*args):
+            text.insert("1.2", "*")
+        tk.Button(root, text="insert at \"1.2\" (row 0, column 2)", command=btn_callback).pack()
+        
+    ![](static/b26921f0bbd649ee57b3a825b04fe674.gif)
     
 
 
