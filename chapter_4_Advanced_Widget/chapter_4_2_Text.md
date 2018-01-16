@@ -20,7 +20,25 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
     
     ![](static/102ee8c0b3fc4647a3030093bc53f9f4.png)
 
+3. 设置`borderwidth`属性
+
+    有时不需要显示`tk.Text`的边框(默认为2像素)
     
+        tk.Text(root, width=30, height=12, borderwidth=0).pack()
+    
+    ![](static/e1ce45307dcf124bec209c82c8e8660e.png)
+    
+
+4. `bg`和`fg`属性
+
+    有时需要设置前景色`fg`和背景色`bg`
+    
+        tk.Text(root, width=30, height=12, bg="black", fg="#16c60c", font=tk.font.Font(size=15)).pack()
+    
+    ![](static/5a1254c1de0c308d51fe97c18ba64f8d.png)
+    
+        
+
 
 3. 索引方式
 
