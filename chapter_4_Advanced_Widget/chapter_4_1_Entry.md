@@ -68,7 +68,7 @@
         all：上述所有情况都调用
         none：上述所有情况都不调用
     
-    下例实现了当用户输入一个字符，就调用一次`validatecommand()`函数
+    下例实现了当用户输入一个字符，就调用一次`validatecommand()`函数：
     
         # 验证用户输入的回调函数
         def validate_callback():
@@ -88,7 +88,22 @@
     
     如果返回`True`或者其它非`False`值，那么用户的输入就会正常显示在`Entry`中；
     
-    如果返回`False`，那么用户的输入就会被废弃掉，并调用`invalidcommand`属性绑定的回调函数(如果有的话)
+    如果返回`False`，那么用户的输入就会被废弃掉，并调用`invalidcommand`属性绑定的回调函数(如果有的话)：
     
+        # 验证用户输入的回调函数
+        def validate_callback():
+            label['text'] += "\n{}".format(validate_callback)
+            return False  # 这里硬编码为返回False，意味着一定验证失败，因此实际上用户不能输入任何字符。
+        # 验证失败的回调函数
+        def invalid_callback():
+            label['text'] += "\n{}".format(invalid_callback)
+        # 用来绑定Entry的变量
+        v = tk.StringVar()
+        entry = tk.Entry(root, textvariable=v, validate="key", validatecommand=validate_callback, invalidcommand=invalid_callback)
+        entry.grid(row=0, column=0)
+        # Label
+        label = tk.Label(root, text="content: ")
+        label.grid(row=1, column=0)
     
+    ![](static/1c0da5538acdb28bf75cde5c74bad3d2.gif)
     
