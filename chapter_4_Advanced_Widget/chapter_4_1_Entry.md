@@ -126,9 +126,25 @@
         '%V'    调用validate_callback的原因。值为 'focusin'，'focusout'，'key' 或 'forced'(textvariable)选项指定的变量值被修改）中的一个 
         '%W'    Entry当前的的名字 
     
-         
+    那么最终的效果如下：
     
-
+        # 验证用户输入的回调函数
+        def validate_callback(s):
+            label['text'] += "\n{}".format(s)
+            for char in s:
+                if char not in "0123456789":
+                    return False
+            return True
+        # 验证失败的回调函数
+        def invalid_callback():
+            messagebox.showwarning(title="warning", message="Input must be a digit")
+        # 用来绑定Entry的变量
+        v = tk.StringVar()
+        entry = tk.Entry(root, textvariable=v, validate="key", validatecommand=(root.register(validate_callback), "%P"),
+                         invalidcommand=invalid_callback)
+        entry.grid(row=0, column=0)
+        # Label
+        label = tk.Label(root, text="content: ")
+        label.grid(row=1, column=0)
     
-    
-    
+    ![](static/eda1c3eb440f825add90d03ab212335c.gif)
