@@ -108,7 +108,7 @@
     ![](static/1c0da5538acdb28bf75cde5c74bad3d2.gif)
     
     但是这样并不能实现实时验证用户输入。比如我们的目标是让用户只输入数字。当用户首先输入了`2018`，接着输入了一个非数字(比如"年")的时候，
-    `validate_callback()`被调用，而此时无论通过`v.get()`只能得到字符串`2014`，并不能得到用户当前要输入的字符，
+    `validate_callback()`被调用，而此时无论通过`v.get()`只能得到字符串`2018`，并不能得到用户当前要输入的字符，
     从而无从判断！解决方法是对验证函数使用`root.register()`进行包装(可以理解成装饰器)。
     
     格式为：`validatecommand = root.register(validate_callback, param1, param2, ...)`，
@@ -125,6 +125,7 @@
         '%v'    Entry当前validate选项的值 
         '%V'    调用validate_callback的原因。值为 'focusin'，'focusout'，'key' 或 'forced'(textvariable)选项指定的变量值被修改）中的一个 
         '%W'    Entry当前的的名字 
+    
          
     
 
