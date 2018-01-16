@@ -57,7 +57,7 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         嵌入对象(窗口，对象)的名称
         表达式
         
-    "{line}.{column}"是最基本的索引方式。
+    "{line}.{column}"是最基本的索引方式。下例插入索引位置为"1.2"，即第 0 行第 2 列
     
         text = tk.Text(root, width=30, height=12)
         text.pack()
