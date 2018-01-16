@@ -92,7 +92,7 @@
     
     ![](static/dc8865a7e094f2681e25523fefc6e160.png)
 
-5. 设置`validate`，`validatecommand`和`invalidcommand`选项验证输入内容
+5. 设置`validate`，`validatecommand`和`invalidcommand`属性验证输入内容
 
     `validate`负责何时调用`validatecommand`属性绑定的回调函数。共有6种模式：
     
@@ -183,4 +183,3 @@
         label.grid(row=1, column=0)
     
     ![](static/eda1c3eb440f825add90d03ab212335c.gif)
-
