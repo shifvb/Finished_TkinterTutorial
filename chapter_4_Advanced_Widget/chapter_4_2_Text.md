@@ -107,3 +107,15 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         root.bind("<Key-x>", btn_callback)
     
     ![](static/fee5eefde562bdc45591ac7273144c65.gif)
+    
+    `tk.END`对应当前末尾字符的下一位置：
+    
+        text = tk.Text(root, width=30, height=12)
+        text.pack()
+        text.insert("1.0", "capitalism,socialism\ncommunism and anarchism")
+        # 按钮回调函数
+        def btn_callback(*args):
+            text.insert(tk.END, "*")
+        tk.Button(root, text="insert at tk.END", command=btn_callback).pack()
+    
+    ![](static/c0532eeab8f0d5bdc11452c9ce3185b7.gif)
