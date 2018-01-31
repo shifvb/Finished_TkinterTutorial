@@ -178,7 +178,7 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         # 按钮回调函数
         def btn_callback(*args):
             text.insert(str(_btn) + "+5c", "*")
-        tk.Button(root, text="insert str(_btn) \" + 5chars\"", command=btn_callback).pack()
+        tk.Button(root, text="insert at str(_btn) \" + 5chars\"", command=btn_callback).pack()
         
-    ![](static/141c399ff925b3719ca26cdbee752663.gif)
+    ![](static/b3e44915724a0efd0c6a9181be3e9cd9.gif)
     
