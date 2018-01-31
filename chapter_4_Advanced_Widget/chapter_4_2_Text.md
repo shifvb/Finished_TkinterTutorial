@@ -38,7 +38,7 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
     ![](static/5a1254c1de0c308d51fe97c18ba64f8d.png)
 
 
-3. 索引方式
+5. 索引方式
 
     `tk.Text`的索引方式和`tk.Entry`类似
     
@@ -90,3 +90,18 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         def btn_callback(*args):
             text.insert(tk.INSERT, "*")
         tk.Button(root, text="insert at tk.INSERT", command=btn_callback).pack()
+    
+    `tk.CURRENT`对应最接近当前鼠标坐标的字符。由于点击按钮时鼠标坐标一定在下方，
+    所以对'x'键进行绑定来体现效果。
+    
+        text = tk.Text(root, width=30, height=12)
+        text.pack()
+        text.insert("1.0", "capitalism,socialism\ncommunism and anarchism")
+        # 按钮回调函数
+        def btn_callback(*args):
+            text.insert(tk.CURRENT, "*")
+        tk.Button(root, text="Press 'x' to insert at tk.CURRENT", command=btn_callback).pack()
+        # 绑定键盘'x'键
+        root.bind("<Key-x>", btn_callback)
+    
+    ![](static/fee5eefde562bdc45591ac7273144c65.gif)
