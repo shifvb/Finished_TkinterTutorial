@@ -91,6 +91,8 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
             text.insert(tk.INSERT, "*")
         tk.Button(root, text="insert at tk.INSERT", command=btn_callback).pack()
     
+    ![](static/acef9f4ea5eb17160233de3437f37501.gif)
+    
     `tk.CURRENT`对应最接近当前鼠标坐标的字符。由于点击按钮时鼠标坐标一定在下方，
     所以对'x'键进行绑定来体现效果。
     
