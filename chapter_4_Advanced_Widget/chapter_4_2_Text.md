@@ -157,7 +157,7 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
     
     * `+ count lines`表示向上移动`count`行，尽可能贴近原索引列，不会超过索引"1.0"。
     
-    * `- count lines`表示向下移动`count`行，尽可能贴近原索引列，不会超过`tk.END`。
+    * `- count lines`表示向下移动`count`行，尽可能贴近原索引列，不会超过索引`tk.END`。
     
     * `linestart`表示本行行首
     
