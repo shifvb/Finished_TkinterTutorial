@@ -131,3 +131,17 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         tk.Button(root, text="insert at (x=100, y=20)", command=btn_callback).pack()
 
     ![](static/886f2a8f3ce9474f9ab474e06f9ec59d.gif)
+    
+    也可以直接使用嵌入窗口/图片对象的引用作为索引：
+    
+        text = tk.Text(root, width=30, height=12)
+        text.pack()
+        text.insert("1.0", "capitalism,socialism\ncommunism and anarchism")
+        _btn = tk.Button(root, text="_btn")
+        text.window_create("2.5", window=_btn)
+        # 按钮回调函数
+        def btn_callback(*args):
+            text.insert(_btn, "*")
+        tk.Button(root, text="insert at _btn", command=btn_callback).pack()
+        
+    ![](static/5f53f9a77e72bba8e4a157109ec9bbe8.gif)
