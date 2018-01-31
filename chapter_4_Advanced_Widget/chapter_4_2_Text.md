@@ -120,6 +120,28 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
     
     ![](static/c0532eeab8f0d5bdc11452c9ce3185b7.gif)
     
+    `mark`通常在文中不可见，处于字符间，也可以用来索引。具体类型有：
+        
+    * `tk.INSERT`
+        
+    * `tk.CURRENT`
+        
+    * 用户自定义`mark`(使用`mark_set()`函数)
+    
+    下例自定义了一个名为`my_mark`的`mark`，并用其索引：
+    
+        text = tk.Text(root, width=30, height=12)
+        text.pack()
+        text.insert("1.0", "capitalism,socialism\ncommunism and anarchism")
+        # 用户自定义mark
+        text.mark_set("my_mark", "1.2")
+        # 按钮回调函数
+        def btn_callback(*args):
+            text.insert("my_mark", "*")
+        tk.Button(root, text="insert at \"my_mark\"", command=btn_callback).pack()
+        
+    ![](static/67b3e6eb661f5982e0f172c8a22a0c36.gif)
+    
     直接指定`@x,y`(窗口坐标(以像素记))，可以索引到距指定坐标最近的字符：
     
         text = tk.Text(root, width=30, height=12)
