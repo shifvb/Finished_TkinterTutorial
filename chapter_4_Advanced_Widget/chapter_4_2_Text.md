@@ -119,3 +119,15 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         tk.Button(root, text="insert at tk.END", command=btn_callback).pack()
     
     ![](static/c0532eeab8f0d5bdc11452c9ce3185b7.gif)
+    
+    直接指定`@x,y`(窗口坐标(以像素记))，可以索引到距指定坐标最近的字符：
+    
+        text = tk.Text(root, width=30, height=12)
+        text.pack()
+        text.insert("1.0", "capitalism,socialism\ncommunism and anarchism")
+        # 按钮回调函数
+        def btn_callback(*args):
+            text.insert("@100,20", "*")
+        tk.Button(root, text="insert at (x=100, y=20)", command=btn_callback).pack()
+
+    ![](static/886f2a8f3ce9474f9ab474e06f9ec59d.gif)
