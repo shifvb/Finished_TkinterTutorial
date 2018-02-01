@@ -51,7 +51,7 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         tk.CURRENT
         tk.END
         用户定义的marks
-        用户定义的tags("tag.first", "tag.last")
+        用户定义的tags
         selection(SEL_FIRST, SEL_LAST)
         窗口坐标("@x,y")
         嵌入对象(窗口，对象)的名称
@@ -140,7 +140,7 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         
     ![](static/67b3e6eb661f5982e0f172c8a22a0c36.gif)
     
-    与`mark`表示单个位置不同，`tag`表示字符范围。和`tk.Canvas`控件不同，`tag`和`tk.Text`控件并不是紧密绑定的，
+    与`mark`表示单一位置不同，`tag`表示字符范围。和`tk.Canvas`控件不同，`tag`和`tk.Text`控件并不是紧密绑定的，
     即`tag`的对应关系不会随着其对应文字的消失而消失。具体类型有：
     
     * tk.SEL
@@ -219,6 +219,19 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         tk.Button(root, text="insert at str(_btn) \" + 5chars\"", command=btn_callback).pack()
         
     ![](static/b3e44915724a0efd0c6a9181be3e9cd9.gif)
+    
+    最后，使用`index()`方法可以将任何格式的索引转换成`{line}.{column}`格式：
+    
+        text = tk.Text(root, width=30, height=12)
+        text.pack()
+        text.insert("1.0", "capitalism,socialism\ncommunism and anarchism")
+        # 按钮回调函数
+        def btn_callback(*args):
+            btn.configure(text="index: " + text.index(tk.SEL_FIRST))
+        btn = tk.Button(root, text="show index str of \"tk.END\"", command=btn_callback)
+        btn.pack()
+        
+    ![](static/faa5d534cb4c02e5062a958f36ef84c3.gif)
     
 6. 使用`insert()`方法插入字符
 
