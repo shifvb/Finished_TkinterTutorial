@@ -73,8 +73,8 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
     * 用户自定义`mark`(使用`mark_set()`方法定义)
     
     `tk.INSERT`对应光标，`tk.CURRENT`对应最接近当前鼠标坐标的字符，而`tk.END`对应`tk.Text`末尾字符后方位置。
-    "SEL"表示"selection"，即用户选中字符范围，所以`tk.SEL_FIRST`就是用户选定字符范围的最前方位置，而`tk.SEL_LAST`对应
-    用户选定字符范围最后一个字符对应的位置。
+    "SEL"表示"selection"，即用户选中字符范围，所以`tk.SEL_FIRST`就是用户选定字符范围的第一个字符对应的位置，
+    而`tk.SEL_LAST`对应用户选定字符范围最后一个字符对应位置的下一个位置。
     
         text = tk.Text(root, width=30, height=12)
         text.pack()
