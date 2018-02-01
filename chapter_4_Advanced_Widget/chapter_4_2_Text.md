@@ -43,18 +43,13 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
     `tk.Text`的索引方式和`tk.Entry`类似
     
     值得注意的是，line(行索引)从1开始，而column(列索引)和`tk.Entry`相同，从0开始。
-    指定越界索引不会报错，而是会“粘”到最近的位置。共有如下索引类型：
+    指定越界索引不会报错，而是会“粘”到最近的位置。共有如下索引类型(`{}`内表示需要用户自己填充)：
     
-        "{line}.{column}"
-        "{line}.end"
-        tk.INSERT
-        tk.CURRENT
-        tk.END
-        用户定义的marks
-        用户定义的tags
-        selection(SEL_FIRST, SEL_LAST)
-        窗口坐标("@x,y")
-        嵌入对象(窗口，对象)的名称
+        最基本类型"{line}.{column}" (包括"{line}.end")
+        用户定义/预定义的mark       
+        用户定义/预定义的tag        ("tk.SEL_FIRST", "tk.SEL_LAST", "{tag}.first", "{tag}.last")
+        窗口坐标                    ("@{x},{y}")
+        嵌入对象(窗口，对象)的名称/引用
         表达式
         
     "{line}.{column}"是最基本的索引方式。下例插入索引位置为"1.2"，即第 0 行第 2 列
@@ -140,7 +135,11 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         
     ![](static/67b3e6eb661f5982e0f172c8a22a0c36.gif)
     
-    与`mark`表示单一位置不同，`tag`表示字符范围。和`tk.Canvas`控件不同，`tag`和`tk.Text`控件并不是紧密绑定的，
+    `tag`与`mark`表示单一位置不同，其表示字符范围。
+    `tag`可以用来设置部分字符的样式。
+    `tag`并不能直接用于索引，但是`tag.first`和`tag.last`是可以用于索引的。
+    
+    与`tk.Canvas`控件不同，`tag`和`tk.Text`控件并不是紧密绑定的，
     即`tag`的对应关系不会随着其对应文字的消失而消失。具体类型有：
     
     * tk.SEL
