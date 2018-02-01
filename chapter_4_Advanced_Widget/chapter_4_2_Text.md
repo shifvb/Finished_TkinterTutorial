@@ -136,7 +136,6 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
     
     ![](static/bb0078ab15380c3fac260d1eb23dfaba.gif)
     
-    
     直接指定`@x,y`(窗口坐标(以像素记))，可以索引到距指定坐标最近的字符：
     
         text = tk.Text(root, width=30, height=12)
