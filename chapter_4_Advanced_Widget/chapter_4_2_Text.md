@@ -225,7 +225,8 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
     
 7. 使用`delete()`方法删除字符
 
-    此方法参数为`delete(self, index1, index2=None)`，会删除从`index1`(包括)到`index2`(不包括)之间的所有字符：
+    此方法参数为`delete(self, index1, index2=None)`，会删除从`index1`(包括)到`index2`(不包括)之间的所有字符。
+    如果只传入`index1`那么只会删除索引后方的单个字符。下例删除了`tk.Text`中的所有字符：
     
         text = tk.Text(root, width=30, height=12)
         text.pack()
