@@ -43,7 +43,7 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
     `tk.Text`的索引方式和`tk.Entry`类似
     
     值得注意的是，line(行索引)从1开始，而column(列索引)和`tk.Entry`相同，从0开始。
-    指定越界索引不会报错，而是会“粘”到最近的位置。共有11种索引类型：
+    指定越界索引不会报错，而是会“粘”到最近的位置。共有如下索引类型：
     
         "{line}.{column}"
         "{line}.end"
@@ -122,7 +122,7 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
     
     `mark`通常在文中不可见，处于字符间，也可以用来索引。具体类型有：
         
-    * `tk.INSERT`, `tk.CURRENT`, `tk.END`
+    * `tk.INSERT`, `tk.CURRENT`, `tk.END`, `tk.SEL_FIRST`, `tk.SEL_LAST`等预定义`mark`
         
     * 用户自定义`mark`(使用`mark_set()`方法定义)
     
