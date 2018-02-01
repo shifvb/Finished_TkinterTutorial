@@ -220,3 +220,37 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         
     ![](static/b3e44915724a0efd0c6a9181be3e9cd9.gif)
     
+6. 使用`insert()`方法插入字符
+
+    此方法参数为`insert(self, index, chars, *args)`。那么重新使用插入`tk.END`的例子进行演示：
+    
+        text = tk.Text(root, width=30, height=12)
+        text.pack()
+        text.insert("1.0", "capitalism,socialism\ncommunism and anarchism")
+        # 按钮回调函数
+        def btn_callback(*args):
+            text.insert(tk.END, "*")
+        tk.Button(root, text="insert at tk.END", command=btn_callback).pack()
+    
+    ![](static/c0532eeab8f0d5bdc11452c9ce3185b7.gif)
+    
+7. 使用`delete()`方法删除字符
+
+    此方法参数为`delete(self, index1, index2=None)`，会删除从`index1`(包括)到`index2`(不包括)之间的所有字符：
+    
+        text = tk.Text(root, width=30, height=12)
+        text.pack()
+        text.insert("1.0", "capitalism,socialism\ncommunism and anarchism")
+        # 按钮回调函数
+        def btn_callback(*args):
+            text.delete("1.0", tk.END)
+        tk.Button(root, text="delete all", command=btn_callback).pack()
+        
+    ![](static/d57a6ec482084058d7a17b99d325e4f4.gif)
+    
+    
+
+
+    
+    
+    
