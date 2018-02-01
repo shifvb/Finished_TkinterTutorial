@@ -281,7 +281,7 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
 
     ![](static/269d1083295433d8118ac1d759a6f31d.gif)
     
-9. 通过`window_create()`方法在`tk.Text`中添加控件
+10. 通过`window_create()`方法在`tk.Text`中添加控件
     
     本例在文本最后添加了一个按钮：
 
@@ -295,7 +295,22 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
     
     ![](static/c5bd0e130e6c8d494642cc9598c6825f.gif)
 
+11. 通过切换`tk.NORMAL`和`tk.DISABLED`属性控制`tk.Text`为只读
 
+    `tk.Text`的默认状态为`tk.NORMAL`，当设置成`tk.DISABLED`之后会变为只读，
+    不仅用户无法通过键鼠修改，`insert()`，`delete()`方法也会失效。
+    通过切换`tk.NORMAL`和`tk.DISABLED`属性，可以实现类似日志输出的效果：
+    
+        text = tk.Text(root, width=20, height=6, state=tk.DISABLED, bg="black", fg="#16c60c", font=font.Font(size=20))
+        text.pack()
+        # 按钮回调函数
+        def btn_callback(*args):
+            text.configure(state=tk.NORMAL)
+            text.insert(tk.END, "log text1\nlog text2\nlog text3")
+            text.configure(state=tk.DISABLED)
+        tk.Button(root, text="show", command=btn_callback).pack()
+        
+    ![](static/c36267ea75711756bb0af0f3bae568f3.jpg)
     
     
     
