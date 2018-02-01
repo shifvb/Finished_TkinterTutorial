@@ -111,7 +111,7 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
     
     * 用户自定义`tag`(通过`tag_add()`方法定义)
     
-    通过`tag`可以实现指定范围字符的样式设置(通过`tag_configure()`方法)。
+    虽然`tah`不能直接用于索引一个特定字符位置，但是通过`tag`可以实现指定范围字符的样式设置(通过`tag_configure()`方法)。
     下例对`tk.SEL`这个预定义`tag`所对应字符范围的文字样式进行了设置：
     
         text = tk.Text(root, width=30, height=12)
@@ -123,6 +123,19 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         tk.Button(root, text="change tk.SEL's style", command=btn_callback).pack()
         
     ![](static/6444c8c4dbb36afaa9ca8d956d6d3c43.gif)
+    
+    下例使用`tk.SEL_LAST`进行索引：
+    
+        text = tk.Text(root, width=30, height=12)
+        text.pack()
+        text.insert("1.0", "capitalism,socialism\ncommunism and anarchism")
+        # 按钮回调函数
+        def btn_callback(*args):
+            text.insert(tk.SEL_LAST, "*")
+        tk.Button(root, text="insert at \"tk.SEL_LAST\"", command=btn_callback).pack()
+    
+    ![](static/bb0078ab15380c3fac260d1eb23dfaba.gif)
+    
     
     直接指定`@x,y`(窗口坐标(以像素记))，可以索引到距指定坐标最近的字符：
     
