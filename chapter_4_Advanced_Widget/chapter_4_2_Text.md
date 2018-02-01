@@ -237,7 +237,32 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         
     ![](static/d57a6ec482084058d7a17b99d325e4f4.gif)
 
-8. 通过`window_create()`方法在`tk.Text`中添加控件
+8. 通过`get()`方法获得字符内容
+
+    下例使用了`get(self, index1, index2=None)`方法获取了所有字符并计算哈希值进行比对，
+    从而判断文本是否发生变化：
+    
+        from hashlib import md5
+        text = tk.Text(root, width=30, height=12)
+        text.pack()
+        text.insert("1.0", "capitalism,socialism\ncommunism and anarchism")
+        # 计算哈希值
+        last_hash = md5(text.get("1.0", tk.END).encode('utf-8')).hexdigest()
+        # 按钮回调函数，计算新的哈希值和旧哈希值比对
+        def btn_callback(*args):
+            new_hash = md5(text.get("1.0", tk.END).encode('utf-8')).hexdigest()
+            global last_hash
+            if new_hash == last_hash:
+                btn.configure(text="status: UNCHANGED")
+            else:
+                btn.configure(text="status: CHANGED")
+            last_hash = new_hash
+        btn = tk.Button(root, text="check if text has been changed", command=btn_callback)
+        btn.pack()
+        
+    ![](static/c584b7189615a44da403a907bed16344.gif)
+
+9. 通过`window_create()`方法在`tk.Text`中添加控件
     
     本例在文本最后添加了一个按钮：
 
