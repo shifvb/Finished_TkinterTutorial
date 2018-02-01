@@ -101,8 +101,8 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
     ![](static/67b3e6eb661f5982e0f172c8a22a0c36.gif)
     
     `tag`表示字符范围，和`mark`表示单一字符位置不同。
-    `tag`可以用来设置部分字符的样式。
-    `tag`并不能直接用于索引，但是`tag.first`和`tag.last`是可以用于索引的。
+    `tag`可以用来设置部分字符的样式(通过`tag_configure()`方法)。
+    `tag`并不能直接用于索引，但是`{tag}.first`和`{tag}.last`是可以用于索引的。
     
     与`tk.Canvas`控件不同，`tag`和`tk.Text`控件并不是紧密绑定的，
     即`tag`的对应关系不会随着其对应文字的消失而消失。具体类型有：
