@@ -65,7 +65,7 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         
     ![](static/b26921f0bbd649ee57b3a825b04fe674.gif)
     
-    `tk.INSERT`对应光标：
+    `tk.INSERT`对应光标，`tk.CURRENT`对应最接近当前鼠标坐标的字符，而`tk.END`对应`tk.Text`末尾字符的后面。
     
         text = tk.Text(root, width=30, height=12)
         text.pack()
@@ -76,33 +76,6 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         tk.Button(root, text="insert at tk.INSERT", command=btn_callback).pack()
     
     ![](static/acef9f4ea5eb17160233de3437f37501.gif)
-    
-    `tk.CURRENT`对应最接近当前鼠标坐标的字符。由于点击按钮时鼠标坐标一定在下方，
-    所以对'x'键进行绑定来体现效果。
-    
-        text = tk.Text(root, width=30, height=12)
-        text.pack()
-        text.insert("1.0", "capitalism,socialism\ncommunism and anarchism")
-        # 按钮回调函数
-        def btn_callback(*args):
-            text.insert(tk.CURRENT, "*")
-        tk.Button(root, text="Press 'x' to insert at tk.CURRENT", command=btn_callback).pack()
-        # 绑定键盘'x'键
-        root.bind("<Key-x>", btn_callback)
-    
-    ![](static/fee5eefde562bdc45591ac7273144c65.gif)
-    
-    `tk.END`对应当前末尾字符的下一位置：
-    
-        text = tk.Text(root, width=30, height=12)
-        text.pack()
-        text.insert("1.0", "capitalism,socialism\ncommunism and anarchism")
-        # 按钮回调函数
-        def btn_callback(*args):
-            text.insert(tk.END, "*")
-        tk.Button(root, text="insert at tk.END", command=btn_callback).pack()
-    
-    ![](static/c0532eeab8f0d5bdc11452c9ce3185b7.gif)
     
     `mark`通常在文中不可见，处于字符间，也可以用来索引。具体类型有：
         
@@ -124,7 +97,7 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         
     ![](static/67b3e6eb661f5982e0f172c8a22a0c36.gif)
     
-    `tag`与`mark`表示单一位置不同，其表示字符范围。
+    `tag`表示字符范围，和`mark`表示单一字符位置不同。
     `tag`可以用来设置部分字符的样式。
     `tag`并不能直接用于索引，但是`tag.first`和`tag.last`是可以用于索引的。
     
