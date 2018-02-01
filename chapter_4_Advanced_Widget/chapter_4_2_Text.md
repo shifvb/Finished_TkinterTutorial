@@ -122,7 +122,7 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
     
     `mark`通常在文中不可见，处于字符间，也可以用来索引。具体类型有：
         
-    * `tk.INSERT`,`tk.CURRENT`, `tk.END`
+    * `tk.INSERT`, `tk.CURRENT`, `tk.END`
         
     * 用户自定义`mark`(使用`mark_set()`函数)
     
