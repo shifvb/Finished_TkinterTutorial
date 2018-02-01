@@ -52,8 +52,9 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         嵌入对象(窗口，对象)的名称/引用
         表达式                     (如"1.2 + 5chars")
         
-    "{line}.{column}"是最基本的索引方式。下例插入索引位置为"1.2"，即第 0 行第 2 列。
-    由于无法简单直接地指定一行中末尾字符的下一个字符的位置，所以引入了"{line}.end"，在此不做过多介绍。
+    "{line}.{column}"是最基本的索引方式。
+    由于无法直接地指定一行中末尾字符的下一个字符的位置(虽然有越界自动粘黏机制)，因此引入了"{line}.end"，此处不再赘述。
+    下例索引位置为"1.2"，即第 0 行第 2 列。
     
         text = tk.Text(root, width=30, height=12)
         text.pack()
@@ -65,7 +66,15 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         
     ![](static/b26921f0bbd649ee57b3a825b04fe674.gif)
     
-    `tk.INSERT`对应光标，`tk.CURRENT`对应最接近当前鼠标坐标的字符，而`tk.END`对应`tk.Text`末尾字符的后面。
+    `mark`通常在文中不可见，处于字符间，也可以用来索引。具体类型有：
+        
+    * `tk.INSERT`, `tk.CURRENT`, `tk.END`, `tk.SEL_FIRST`, `tk.SEL_LAST`等预定义`mark`
+        
+    * 用户自定义`mark`(使用`mark_set()`方法定义)
+    
+    `tk.INSERT`对应光标，`tk.CURRENT`对应最接近当前鼠标坐标的字符，而`tk.END`对应`tk.Text`末尾字符后方位置。
+    "SEL"表示"selection"，即用户选中字符范围，所以`tk.SEL_FIRST`就是用户选定字符范围的最前方位置，而`tk.SEL_LAST`对应
+    用户选定字符范围最后一个字符对应的位置。
     
         text = tk.Text(root, width=30, height=12)
         text.pack()
@@ -76,12 +85,6 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         tk.Button(root, text="insert at tk.INSERT", command=btn_callback).pack()
     
     ![](static/acef9f4ea5eb17160233de3437f37501.gif)
-    
-    `mark`通常在文中不可见，处于字符间，也可以用来索引。具体类型有：
-        
-    * `tk.INSERT`, `tk.CURRENT`, `tk.END`, `tk.SEL_FIRST`, `tk.SEL_LAST`等预定义`mark`，"SEL"表示"selection"，即用户选定字符
-        
-    * 用户自定义`mark`(使用`mark_set()`方法定义)
     
     下例自定义了一个名为`my_mark`的`mark`，并用其索引：
     
