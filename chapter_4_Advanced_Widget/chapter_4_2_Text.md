@@ -122,9 +122,7 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
     
     `mark`通常在文中不可见，处于字符间，也可以用来索引。具体类型有：
         
-    * `tk.INSERT`
-        
-    * `tk.CURRENT`
+    * `tk.INSERT`,`tk.CURRENT`, `tk.END`
         
     * 用户自定义`mark`(使用`mark_set()`函数)
     
@@ -141,6 +139,26 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         tk.Button(root, text="insert at \"my_mark\"", command=btn_callback).pack()
         
     ![](static/67b3e6eb661f5982e0f172c8a22a0c36.gif)
+    
+    与`mark`表示单个位置不同，`tag`表示字符范围。和`tk.Canvas`控件不同，`tag`和`tk.Text`控件并不是紧密绑定的，
+    即`tag`的对应关系不会随着其对应文字的消失而消失。具体类型有：
+    
+    * tk.SEL
+    
+    * 用户自定义`tag`(通过`tag_add()`方法定义)
+    
+    通过`tag`可以实现指定范围字符的样式设置(通过`tag_configure()`方法)。
+    下例对`tk.SEL`这个预定义`tag`所对应字符范围的文字样式进行了设置：
+    
+        text = tk.Text(root, width=30, height=12)
+        text.pack()
+        text.insert("1.0", "capitalism,socialism\ncommunism and anarchism")
+        # 按钮回调函数
+        def btn_callback(*args):
+            text.tag_configure(tk.SEL, background="#000000", foreground="#16c60c", font=font.Font(size=20))
+        tk.Button(root, text="change tk.SEL's style", command=btn_callback).pack()
+        
+    ![](static/6444c8c4dbb36afaa9ca8d956d6d3c43.gif)
     
     直接指定`@x,y`(窗口坐标(以像素记))，可以索引到距指定坐标最近的字符：
     
