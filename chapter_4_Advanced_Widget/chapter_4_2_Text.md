@@ -106,7 +106,7 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
     
     `mark`通常在文中不可见，处于字符间，也可以用来索引。具体类型有：
         
-    * `tk.INSERT`, `tk.CURRENT`, `tk.END`, `tk.SEL_FIRST`, `tk.SEL_LAST`等预定义`mark`
+    * `tk.INSERT`, `tk.CURRENT`, `tk.END`, `tk.SEL_FIRST`, `tk.SEL_LAST`等预定义`mark`，"SEL"表示"selection"，即用户选定字符
         
     * 用户自定义`mark`(使用`mark_set()`方法定义)
     
