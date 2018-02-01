@@ -236,8 +236,20 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         tk.Button(root, text="delete all", command=btn_callback).pack()
         
     ![](static/d57a6ec482084058d7a17b99d325e4f4.gif)
+
+8. 通过`window_create()`方法在`tk.Text`中添加控件
     
+    本例在文本最后添加了一个按钮：
+
+        text = tk.Text(root, width=30, height=12)
+        text.pack()
+        text.insert("1.0", "capitalism,socialism\ncommunism and anarchism")
+        # 按钮回调函数
+        def btn_callback(*args):
+            text.window_create(tk.END, window=tk.Button(root, text="_btn"))
+        tk.Button(root, text="insert button \"_btn\"", command=btn_callback).pack()
     
+    ![](static/c5bd0e130e6c8d494642cc9598c6825f.gif)
 
 
     
