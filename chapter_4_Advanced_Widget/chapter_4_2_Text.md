@@ -45,12 +45,12 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
     值得注意的是，line(行索引)从1开始，而column(列索引)和`tk.Entry`相同，从0开始。
     指定越界索引不会报错，而是会“粘”到最近的位置。共有如下索引类型(`{}`内表示需要用户自己填充)：
     
-        最基本类型"{line}.{column}" (包括"{line}.end")
-        用户定义/预定义的mark       
-        用户定义/预定义的tag        ("tk.SEL_FIRST", "tk.SEL_LAST", "{tag}.first", "{tag}.last")
-        窗口坐标                    ("@{x},{y}")
+        基本类型                    (如"{line}.{column}", "{line}.end")
+        用户定义/预定义的mark       (如tk.INSERT, tk.CURRENT, tk.END等)
+        用户定义/预定义的tag        (如tk.SEL_FIRST, tk.SEL_LAST等)
+        窗口坐标                    (如"@{x},{y}")
         嵌入对象(窗口，对象)的名称/引用
-        表达式
+        表达式                      (如"1.2 + 5chars")
         
     "{line}.{column}"是最基本的索引方式。下例插入索引位置为"1.2"，即第 0 行第 2 列
     
