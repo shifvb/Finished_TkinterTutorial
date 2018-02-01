@@ -124,7 +124,7 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         
     * `tk.INSERT`, `tk.CURRENT`, `tk.END`
         
-    * 用户自定义`mark`(使用`mark_set()`函数)
+    * 用户自定义`mark`(使用`mark_set()`方法定义)
     
     下例自定义了一个名为`my_mark`的`mark`，并用其索引：
     
