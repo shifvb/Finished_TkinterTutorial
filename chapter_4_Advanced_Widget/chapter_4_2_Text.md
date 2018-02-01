@@ -64,18 +64,6 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         
     ![](static/b26921f0bbd649ee57b3a825b04fe674.gif)
     
-    "{line}.end"中的"end"对应结束一行的换行符。
-    
-        text = tk.Text(root, width=30, height=12)
-        text.pack()
-        text.insert("1.0", "capitalism,socialism\ncommunism and anarchism")
-        # 按钮回调函数
-        def btn_callback(*args):
-            text.insert("1.end", "*")
-        tk.Button(root, text="insert at \"1.end\"", command=btn_callback).pack()
-        
-    ![](static/cc76fa1d2ad0fcfd79bcacc619e4e6ba.gif)
-    
     `tk.INSERT`对应光标：
     
         text = tk.Text(root, width=30, height=12)
