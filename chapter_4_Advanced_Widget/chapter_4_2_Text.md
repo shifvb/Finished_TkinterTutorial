@@ -262,6 +262,25 @@ Text被设计用来显示多行文字。和Entry不同的是，Text中的文字�
         
     ![](static/c584b7189615a44da403a907bed16344.gif)
 
+9. 通过`search()`方法搜索
+
+    使用`search(self, pattern, index, stopindex=None, forwards=None, backwards=None, exact=None, regexp=None, nocase=None,
+     count=None, elide=None)`方法可以获得指定`pattern`的索引：
+     
+        text = tk.Text(root, width=30, height=12)
+        text.pack()
+        text.insert("1.0", "capitalism,socialism\ncommunism and anarchism")
+        # 按钮回调函数
+        def btn_callback(*args):
+            _pos = text.search("anar", "1.0", tk.END, regexp=True)
+            if not _pos == "":
+                text.insert(_pos, "*")
+            else:
+                messagebox.showerror(message="not found!")
+        tk.Button(root, text="search", command=btn_callback).pack()
+
+    ![](static/269d1083295433d8118ac1d759a6f31d.gif)
+    
 9. 通过`window_create()`方法在`tk.Text`中添加控件
     
     本例在文本最后添加了一个按钮：
