@@ -69,7 +69,24 @@ Canvas可用于创建各种自定义控件
         
         ![](static/5f63310a71f0fe88fa8aeaf227a481ef.png)
         
-    4.
+    4. 使用`create_oval`绘制椭圆
+    
+        查看源码可得方法声明：
+        
+            def create_oval(self, *args, **kw):
+                """Create oval with coordinates x1,y1,x2,y2."""
+                return self._create('oval', args, kw)
+    
+        那么只要指定相应包围椭圆的矩形(bounding box)左上角`x1`，`y1`坐标和右下角`x2`，`y2`坐标即可。
+        可以使用`outline`参数指定边框颜色，`width`参数指定边框宽度，
+        而`fill`参数指定填充颜色(默认透明)
+        
+            canvas = tk.Canvas(root, width=320, height=240)
+            canvas.pack()
+            canvas.create_oval(20, 20, 100, 100, outline="cyan", width=3, fill="#aaaaaa")
+   
+        ![](static/19f09380f41d50a7e00a8b703b14962e.png)
+        
     5.
 
     
