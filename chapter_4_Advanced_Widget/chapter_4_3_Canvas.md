@@ -194,4 +194,21 @@ Canvas可用于创建各种自定义控件
             canvas.create_image(0, 0, image=img, anchor=tk.CENTER)    
      
         ![](static/af9ecab065d91b479be3f23e157a24cc.png)
-        
+
+3. 使用`coords()`方法获取/改变坐标
+
+    `create_xxx()`方法会返回代表创建项的id，根据这个id可以获取/改变已创建项的坐标
+    
+    * 如果只传入创建项的id，那么`coords()`方法会返回此id对应项的坐标
+    * 如果传入创建项id和新坐标，那么`coords()`方法会将此id对应项的坐标设置为新坐标
+    
+    下例使用了上述传参方式。
+    
+        canvas = tk.Canvas(root, width=320, height=240)
+        canvas.pack()
+        line_id = canvas.create_line(20, 20, 100, 100, fill="brown", width=3)
+        print(canvas.coords(line_id))  # 获取坐标
+        _btn = tk.Button(canvas, text="change coords", command=lambda: canvas.coords(line_id, 100, 100, 200, 200))  # 按钮
+        canvas.create_window(220, 200, anchor=tk.NW, window=_btn)
+    
+    ![](static/cade5d7a11ee7b0abccd5d71d0795ff5.gif)
