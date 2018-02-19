@@ -112,4 +112,34 @@ Canvas可用于创建各种自定义控件
             canvas.create_arc(20, 100, 100, 180, start=0, extent=90, style=tk.CHORD, outline="cyan", width=3, fill="#999999")
             canvas.create_arc(20, 180, 100, 260, start=0, extent=90, style=tk.ARC, outline="cyan", width=3, fill="#999999")
         
-        ![](static/47ba6a40070b6ba6d08aedda99383456.png)    
+        ![](static/47ba6a40070b6ba6d08aedda99383456.png)
+        
+    6. 使用`create_text()`方法绘制文字
+    
+        查看源码可得方法声明：
+        
+            def create_text(self, *args, **kw):
+                """Create text with coordinates x1,y1."""
+                return self._create('text', args, kw)
+                
+        既然是绘制文字，那么对于文字的属性在此也可以当成参数。
+            
+        * `font`参数：指定绘制字体，例如`("Arial", 12, "normal")`
+        * `justify`参数：指定行对齐方式，默认为`tk.LEFT`
+        * `width`参数：指定行最大长度(按像素计)，默认为`0`(不换行)
+        * `anchor`参数：指定指定坐标(点(`x1`,`y1`))对应绘制文字的哪个位置，
+        默认为`tk.CENTER`，即指定坐标和绘制文字中心对齐
+        
+        此外一些`create_xxx()`通用参数也有效：
+        
+        * `fill`参数：指定绘制文字的颜色
+        
+        为了显示出`anchor`的效果，在指定坐标(`x1`,`y1`)处画了一个小圆圈。
+        
+            canvas = tk.Canvas(root, width=320, height=240)
+            canvas.pack()
+            canvas.create_oval(98, 98, 103, 103, fill="red")
+            canvas.create_text(100, 100, text="capitalism,socialism\ncommunism and anarchism", fill="#6c5fcd",
+                               font=("Arial", 12, "normal"), justify=tk.RIGHT, width=0, anchor=tk.NW)
+        
+        ![](static/9d580cc04644fc247e8553d022895c8b.png)
