@@ -194,6 +194,10 @@ Canvas可用于创建各种自定义控件
             canvas.create_image(0, 0, image=img, anchor=tk.CENTER)    
      
         ![](static/af9ecab065d91b479be3f23e157a24cc.png)
+        
+    9.  `create_xxx()`的透明色问题
+    
+        将颜色设置为空字符串即为透明
 
 3. 使用`coords()`方法获取/改变坐标
 
@@ -218,10 +222,35 @@ Canvas可用于创建各种自定义控件
     与普通控件可用`configure()`方法设置属性相似，
     使用`create_xxx()`方法创建出的项可用`itemconfigure()`方法设置属性。
     
+    如果不使用关键字方式传入设置属性，那么这个方法会返回当前id对应项的所有可用属性。
+    
         canvas = tk.Canvas(root, width=320, height=240)
         canvas.pack()
         line_id = canvas.create_line(20, 20, 100, 100, fill="brown", width=3)
+        print(canvas.itemconfigure(line_id))  # 查看所有可用属性
         canvas.itemconfigure(line_id, fill="cyan")
         
     ![](static/c2b6118dd4631714072e5a0b7bc3f4c9.png)
+    
+5. 使用`delete()`方法移除项
+
+    传入相应id即可移除对应项
+    
+        canvas = tk.Canvas(root, width=320, height=240)
+        canvas.pack()
+        line_id = canvas.create_line(20, 20, 100, 100, fill="brown", width=3)
+        canvas.delete(line_id)
+
+    ![](static/45a502b83b4ec3629ce07afd22ab4242.png)
+    
+6. 选定项的方式
+
+    在使用上述方法(例如`delete()`方法)时传入了id，但还有指定项的其它方式。
+    
+    * id
+    * `tk.ALL`
+    * `tk.CURRENT`
+    * tags
+    
+    `tk.ALL`即指定当前所有项，`tk.CURRENT`
     
