@@ -212,3 +212,16 @@ Canvas可用于创建各种自定义控件
         canvas.create_window(220, 200, anchor=tk.NW, window=_btn)
     
     ![](static/cade5d7a11ee7b0abccd5d71d0795ff5.gif)
+    
+4. 使用`itemconfigure()`方法设置项属性
+
+    与普通控件可用`configure()`方法设置属性相似，
+    使用`create_xxx()`方法创建出的项可用`itemconfigure()`方法设置属性。
+    
+        canvas = tk.Canvas(root, width=320, height=240)
+        canvas.pack()
+        line_id = canvas.create_line(20, 20, 100, 100, fill="brown", width=3)
+        canvas.itemconfigure(line_id, fill="cyan")
+        
+    ![](static/c2b6118dd4631714072e5a0b7bc3f4c9.png)
+    
