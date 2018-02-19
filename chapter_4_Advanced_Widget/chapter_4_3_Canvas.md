@@ -4,7 +4,9 @@ Canvas可用于创建各种自定义控件
 
 ------------------
 
-1. 声明一个`tk.Canvas`(默认没有任何样式)
+1. 声明一个`tk.Canvas`
+
+    `tk.Canvas`默认没有任何样式
 
         canvas = tk.Canvas(root, width=320, height=240)
         canvas.pack()
@@ -22,7 +24,14 @@ Canvas可用于创建各种自定义控件
                 """Create line with coordinates x1,y1,...,xn,yn."""
                 return self._create('line', args, kw) 
                 
-        那么只要指定相应的`x1`，`y1`，`x2`，`y2`，即可描出一条直线：
+        那么只要指定相应的`x1`，`y1`，`x2`，`y2`即可描出一条直线(多指定即是折线)。
+        可以使用`fill`参数指定绘制颜色，`width`指定绘制宽度：
+        
+            canvas = tk.Canvas(root, width=320, height=240)
+            canvas.pack()
+            canvas.create_line(50, 50, 100, 100, fill="#aaaaaa", width=3)
+        
+        ![](static/ab19e225768ed6bcd4f083e3eebde8a9.png)
     
     2. 
     
