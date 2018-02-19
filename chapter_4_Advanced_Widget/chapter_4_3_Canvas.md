@@ -16,16 +16,16 @@ Canvas可用于创建各种自定义控件
 
 2. 使用`create_xxx()`方法在`tk.Canvas`对象上描绘图形
 
-    1. `create_line()`
+    1. 使用`create_line()`绘制直线或折线
         
-        使用`create_line()`绘制直线或折线。我们可以看到其声明：
+        查看源码可得方法声明：
         
             def create_line(self, *args, **kw):
                 """Create line with coordinates x1,y1,...,xn,yn."""
                 return self._create('line', args, kw) 
                 
         那么只要指定相应的`x1`，`y1`，`x2`，`y2`即可描出一条直线(多指定即是折线)。
-        可以使用`fill`参数指定绘制颜色，`width`指定绘制宽度：
+        可以使用`fill`参数（而不是`color`）指定绘制颜色，`width`指定绘制宽度：
         
             canvas = tk.Canvas(root, width=320, height=240)
             canvas.pack()
@@ -33,7 +33,23 @@ Canvas可用于创建各种自定义控件
         
         ![](static/ab19e225768ed6bcd4f083e3eebde8a9.png)
     
-    2. 
+    2. 使用`create_rectangle()`方法绘制矩形
+    
+        查看源码可得方法声明：
+        
+            def create_rectangle(self, *args, **kw):
+                """Create rectangle with coordinates x1,y1,x2,y2."""
+                return self._create('rectangle', args, kw)
+    
+        那么只要指定相应的矩形左上角`x1`，`y1`坐标和右下角`x2`，`y2`坐标即可。
+        可以使用`outline`参数指定边框颜色，`width`参数指定边框宽度，
+        而`fill`参数指定填充颜色(默认透明)
+        
+            canvas = tk.Canvas(root, width=320, height=240)
+            canvas.pack()
+            canvas.create_rectangle(50, 50, 100, 100, outline="cyan", fill="#aaaaaa", width=3)
+        
+        ![](static/499771305abad3188e4de3ead10bde00.png)
     
     3.
     4.
