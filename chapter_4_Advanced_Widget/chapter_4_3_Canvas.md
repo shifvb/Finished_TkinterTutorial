@@ -51,7 +51,24 @@ Canvas可用于创建各种自定义控件
         
         ![](static/499771305abad3188e4de3ead10bde00.png)
     
-    3.
+    3. 使用`create_polygon()`方法绘制多边形
+    
+        查看源码可得方法声明：
+       
+            def create_polygon(self, *args, **kw):
+                """Create polygon with coordinates x1,y1,...,xn,yn."""
+                return self._create('polygon', args, kw) 
+        
+        那么指定四个点就可以绘制四边形了。
+        可以使用`outline`参数指定边框颜色，`width`参数指定边框宽度，
+        而`fill`参数指定填充颜色(默认黑色)
+        
+            canvas = tk.Canvas(root, width=320, height=240)
+            canvas.pack()
+            canvas.create_polygon(50, 50, 50, 100, 100, 100, 120, 30, outline="cyan", width=3, fill="#aaaaaa")
+        
+        ![](static/5f63310a71f0fe88fa8aeaf227a481ef.png)
+        
     4.
     5.
 
