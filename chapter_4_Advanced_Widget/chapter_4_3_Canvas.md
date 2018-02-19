@@ -170,3 +170,28 @@ Canvas可用于创建各种自定义控件
             canvas.create_oval(2, 2, 200, 200, fill="gold", width=0) # 绘制图案(圆)
             
         ![](static/d9553f52159d5558bd2efd7b16060862.png)
+        
+    8. 使用`create_image`方法绘制图片
+        
+        查看源码可得方法声明：
+        
+            def create_image(self, *args, **kw):
+                """Create image item with coordinates x1,y1."""
+                return self._create('image', args, kw)
+        
+        常用参数有：
+        
+        * `image`参数：要显示的图像
+        * `anchor`参数：指定图片和点的对应方式
+        
+        本例中图片的中间和点`(0, 0)`对齐
+        
+            canvas = tk.Canvas(root, width=320, height=240)
+            canvas.pack()
+            from PIL.ImageTk import PhotoImage
+            from PIL import Image
+            img = PhotoImage(Image.open("d:\\77654ffb2eabc662ee1dc5651ec31991.jpg"))
+            canvas.create_image(0, 0, image=img, anchor=tk.CENTER)    
+     
+        ![](static/af9ecab065d91b479be3f23e157a24cc.png)
+        
