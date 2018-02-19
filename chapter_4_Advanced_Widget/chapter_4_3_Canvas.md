@@ -143,3 +143,30 @@ Canvas可用于创建各种自定义控件
                                font=("Arial", 12, "normal"), justify=tk.RIGHT, width=0, anchor=tk.NW)
         
         ![](static/9d580cc04644fc247e8553d022895c8b.png)
+        
+    7. 使用`create_window()`方法绘制任意控件
+    
+        查看源码可得方法声明：
+        
+            def create_window(self, *args, **kw):
+                """Create window with coordinates x1,y1,x2,y2."""
+                return self._create('window', args, kw)  
+      
+        常用参数有：
+        
+        * `window`参数：指定控件对象
+        * `height`参数：指定绘制控件的高度。默认为控件原本的高度
+        * `width`参数：指定绘制控件的宽度。默认为控件原本的宽度
+        * `anchor`参数：指定绘制坐标和控件哪个部位对齐
+          
+        不能在控件上方绘制出任何其他图案(即使用此方法绘制的控件处于最顶层)。
+        本例在`tk.Button`控件绘制后，绘制了一个圆，这个圆并不会覆盖按钮区域(如果是其它绘制图案，那么默认情况下会被覆盖掉)
+        
+            canvas = tk.Canvas(root, width=320, height=240)
+            canvas.pack()
+            # 用于create_window()的按钮
+            _btn = tk.Button(canvas, text="XXXX", font=("Arial", 26), wraplength=50, relief=tk.FLAT) 
+            canvas.create_window(100, 100, window=_btn, width=70, height=70, anchor=tk.CENTER)
+            canvas.create_oval(2, 2, 200, 200, fill="gold", width=0) # 绘制图案(圆)
+            
+        ![](static/d9553f52159d5558bd2efd7b16060862.png)
