@@ -69,7 +69,7 @@ Canvas可用于创建各种自定义控件
         
         ![](static/5f63310a71f0fe88fa8aeaf227a481ef.png)
         
-    4. 使用`create_oval`绘制椭圆
+    4. 使用`create_oval()`方法绘制椭圆
     
         查看源码可得方法声明：
         
@@ -77,7 +77,7 @@ Canvas可用于创建各种自定义控件
                 """Create oval with coordinates x1,y1,x2,y2."""
                 return self._create('oval', args, kw)
     
-        那么只要指定相应包围椭圆的矩形(bounding box)左上角`x1`，`y1`坐标和右下角`x2`，`y2`坐标即可。
+        那么只要指定相应包围椭圆的矩形(bounding-box)左上角`x1`，`y1`坐标和右下角`x2`，`y2`坐标即可。
         可以使用`outline`参数指定边框颜色，`width`参数指定边框宽度，
         而`fill`参数指定填充颜色(默认透明)
         
@@ -87,6 +87,29 @@ Canvas可用于创建各种自定义控件
    
         ![](static/19f09380f41d50a7e00a8b703b14962e.png)
         
-    5.
-
+    5. 使用`create_arc()`方法绘制扇形、弦或弧
     
+        查看源码可得方法声明：
+        
+            def create_arc(self, *args, **kw):
+                """Create arc shaped region with coordinates x1,y1,x2,y2."""
+                return self._create('arc', args, kw)
+
+        和绘制椭圆类似，此方法也指定包围矩形(bounding-box)的左上和右下角坐标。
+        不同的是有额外的参数`start`控制起始角度，`extent`控制弧形扫过的角度，
+        `style`控制绘制形状：
+        
+        * `tk.PIESLICE`为扇形(默认)
+        * `tk.CHORD`为弦
+        * `tk.ARC`为弧
+        
+        可以使用`outline`参数指定边框颜色，`width`参数指定边框宽度，
+        而`fill`参数指定填充颜色(默认透明)
+        
+            canvas = tk.Canvas(root, width=320, height=240)
+            canvas.pack()
+            canvas.create_arc(20, 20, 100, 100, start=0, extent=90, style=tk.PIESLICE, outline="cyan", width=3, fill="#999999")
+            canvas.create_arc(20, 100, 100, 180, start=0, extent=90, style=tk.CHORD, outline="cyan", width=3, fill="#999999")
+            canvas.create_arc(20, 180, 100, 260, start=0, extent=90, style=tk.ARC, outline="cyan", width=3, fill="#999999")
+        
+        ![](static/47ba6a40070b6ba6d08aedda99383456.png)    
