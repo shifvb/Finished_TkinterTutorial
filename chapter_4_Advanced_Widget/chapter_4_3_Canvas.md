@@ -252,5 +252,22 @@ Canvas可用于创建各种自定义控件
     * `tk.CURRENT`
     * tags
     
-    `tk.ALL`即指定当前所有项，`tk.CURRENT`
+    `tk.ALL`即指定当前所有项，`tk.CURRENT`指定当前鼠标位置对应项(如果有)。
+    
+    可以使用`itemconfigure()`中`tags`参数对项设定tag，也可以使用`addtag_withtag()`方法设定。
+    设定为空字符串即为无tag。
+    
+    `gettags()`方法可得对应项的所有tag，`find_withtag()`方法可得对应tag的所有项。
+        
+        canvas = tk.Canvas(root, width=320, height=240)
+        canvas.pack()
+        line1_id = canvas.create_line(10, 10, 100, 100, width=3, fill="cyan")
+        line2_id = canvas.create_line(10, 30, 100, 120, width=3, fill='#22ff34')
+        canvas.itemconfigure(line1_id, tags="tag1")  # line1设置"tag1"
+        canvas.addtag_withtag("tag2", line2_id)  # line2设置"tag2"
+        print(canvas.gettags(line1_id))  # 得到line1的所有tag
+        print(canvas.find_withtag("tag2"))  # 按tag查找对应项
+        
+        
+    
     
