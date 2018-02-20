@@ -34,24 +34,30 @@
         滚动条默认是竖直方向(`tk.VERTICAL`)的，需要设置`orient`为`tk.HORIZONTAL`。
         还需要将`yscrollcommand`改为`xscrollcommand`，`yview`改为`xview`。
         
-        此外还需要调整`pack`布局参数使得滚动条合乎常理
+        此外还需要调整`pack`布局参数使得滚动条合乎常理。滚动条默认没有边框，而`tk.Listbox`默认有边框。
+        所以显示外围`tk.Frame`的边框，并隐藏`tk.Listbox`的边框将会更加美观：
         
-            frame = tk.Frame()
+            frame = tk.Frame(relief=tk.SUNKEN, border=1)
             frame.pack()
             # 声明滚动条
             sb = tk.Scrollbar(frame, orient=tk.HORIZONTAL)
             sb.pack(side=tk.BOTTOM, fill=tk.X)
             # 声明Listbox
-            lb = tk.Listbox(frame)
+            lb = tk.Listbox(frame, border=0)
             lb.pack(fill=tk.BOTH)
             lb.insert(tk.END, "capitalism, socialism, communism and anarchism")
             # 绑定事件
             sb.configure(command=lb.xview)
             lb.configure(xscrollcommand=sb.set)
             
-        ![](static/db8ac9bbd774db1b7186695cc2223378.png)
-            
-        有时使用`pack`布局比较复杂，所以本例使用了`grid`布局
+        ![](static/2038eab3f5e6b7a47d192e846c1a2a80.png)
         
+    3. 竖直和水平滚动条
+        
+        当使用两个方向的滚动条的时候，你会发现使用`pack`布局比较复杂(如果)。
+        
+        所以本例使用了`grid`布局
+        
+
         
         
