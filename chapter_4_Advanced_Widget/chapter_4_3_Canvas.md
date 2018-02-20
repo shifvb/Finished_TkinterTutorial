@@ -255,7 +255,7 @@ Canvas可用于创建各种自定义控件
     `tk.ALL`即指定当前所有项，`tk.CURRENT`指定当前鼠标位置对应项(如果有)。
     
     可以使用`itemconfigure()`中`tags`参数对项设定tag，也可以使用`addtag_withtag()`方法设定。
-    设定为空字符串即为无tag。
+    设定为空字符串即为无tag(也可以使用`dtag()`方法)。
     
     `gettags()`方法可得对应项的所有tag，`find_withtag()`方法可得对应tag的所有项。
         
