@@ -147,3 +147,36 @@
             textarea.configure(xscrollcommand=hsb.set)
             
         ![](static/09e4bcb3273014d7e25b7f2b66211876.png)
+        
+3. 和`tk.Canvas`共同使用
+
+    需要设置`scrollregion`属性才能启用滚动。`scrollregion`属性的值是一个含有4个数字的`tuple`，即左上角`x1`，`y1`和
+    右下角坐标`x2`，`y2`。
+    如果在声明`tk.Canvas`时不知道滚动的范围，那么可以使用`bbox(tk.ALL)`方法动态获得当前bounding-box。
+    
+        frame = tk.Frame(relief=tk.SUNKEN, border=1)
+        frame.pack()
+        # 适应缩放
+        frame.grid_rowconfigure(0, weight=1)
+        frame.grid_columnconfigure(0, weight=1)
+        # 声明滚动条
+        hsb = tk.Scrollbar(frame, orient=tk.HORIZONTAL)
+        hsb.grid(row=1, column=0, sticky=tk.EW)
+        vsb = tk.Scrollbar(frame)
+        vsb.grid(row=0, column=1, sticky=tk.NS)
+        # Canvas
+        canvas = tk.Canvas(frame, border=0, width=500, height=259)
+        canvas.grid(row=0, column=0, sticky=tk.NSEW)
+        for i in range(5):
+            for j in range(5):
+                _coord = i * 100, j * 100, i * 100 + 75, j * 100 + 75
+                canvas.create_oval(*_coord, fill="cyan", width=2)
+                canvas.create_text(_coord[0] + 37.5, _coord[1] + 37.5, text="({}, {})".format(*_coord))
+        canvas.configure(scrollregion=canvas.bbox(tk.ALL))
+        # 绑定事件
+        vsb.configure(command=canvas.yview)
+        canvas.configure(yscrollcommand=vsb.set)
+        hsb.configure(command=canvas.xview)
+        canvas.configure(xscrollcommand=hsb.set)
+        
+    ![](static/541de1264ee0ba30040ceeaa3fbc953d.png)
