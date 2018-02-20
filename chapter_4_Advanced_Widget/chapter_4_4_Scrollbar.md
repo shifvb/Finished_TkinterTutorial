@@ -52,12 +52,29 @@
             
         ![](static/2038eab3f5e6b7a47d192e846c1a2a80.png)
         
-    3. 竖直和水平滚动条
+    3. 水平和竖直滚动条
         
-        当使用两个方向的滚动条的时候，你会发现使用`pack`布局比较复杂(如果)。
+        当同时使用两个方向的滚动条的时候，你会发现使用`pack`布局比较复杂(或者效果不理想),
+        因此本例使用了`grid`布局。
         
-        所以本例使用了`grid`布局
+            frame = tk.Frame(relief=tk.SUNKEN, border=1)
+            frame.pack()
+            # 声明滚动条
+            vsb = tk.Scrollbar(frame)
+            vsb.grid(row=0, column=1, sticky=tk.NS)
+            hsb = tk.Scrollbar(frame, orient=tk.HORIZONTAL)
+            hsb.grid(row=1, column=0, sticky=tk.EW)
+            # 声明Listbox
+            lb = tk.Listbox(frame, border=0)
+            lb.grid(row=0, column=0, sticky=tk.NSEW)
+            for i in range(30):
+                lb.insert(tk.END, "(line{}) capitalism, socialism, communism and anarchism".format(i))
+            # 绑定事件
+            hsb.configure(command=lb.xview)
+            lb.configure(xscrollcommand=hsb.set)
+            vsb.configure(command=lb.yview)
+            lb.configure(yscrollcommand=vsb.set)
         
-
+        ![](static/26fa6adb41e32ca969dc4975e6131b72.png)
         
         
