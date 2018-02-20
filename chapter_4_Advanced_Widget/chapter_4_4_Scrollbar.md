@@ -28,3 +28,5 @@
             lb.configure(yscrollcommand=sb.set)
         
         ![](static/4639c9eda1da87ba0c88b9adafbe9d22.png)
+        
+    2. 水平滚动条
