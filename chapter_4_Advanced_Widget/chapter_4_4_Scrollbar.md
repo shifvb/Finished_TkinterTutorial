@@ -4,7 +4,7 @@
 
 --------------------------------------
 
-1. 使用
+1. 和`tk.Listbox`共同使用
     
     1. 竖直滚动条
 
@@ -21,7 +21,7 @@
             sb.pack(side=tk.RIGHT, fill=tk.Y)
             # 声明Listbox
             lb = tk.Listbox(frame)
-            lb.pack(side=tk.LEFT, fill=tk.BOTH)
+            lb.pack(fill=tk.BOTH)
             [lb.insert(tk.END, _) for _ in range(30)]
             # 绑定事件
             sb.configure(command=lb.yview)
@@ -30,3 +30,28 @@
         ![](static/4639c9eda1da87ba0c88b9adafbe9d22.png)
         
     2. 水平滚动条
+    
+        滚动条默认是竖直方向(`tk.VERTICAL`)的，需要设置`orient`为`tk.HORIZONTAL`。
+        还需要将`yscrollcommand`改为`xscrollcommand`，`yview`改为`xview`。
+        
+        此外还需要调整`pack`布局参数使得滚动条合乎常理
+        
+            frame = tk.Frame()
+            frame.pack()
+            # 声明滚动条
+            sb = tk.Scrollbar(frame, orient=tk.HORIZONTAL)
+            sb.pack(side=tk.BOTTOM, fill=tk.X)
+            # 声明Listbox
+            lb = tk.Listbox(frame)
+            lb.pack(fill=tk.BOTH)
+            lb.insert(tk.END, "capitalism, socialism, communism and anarchism")
+            # 绑定事件
+            sb.configure(command=lb.xview)
+            lb.configure(xscrollcommand=sb.set)
+            
+        ![](static/db8ac9bbd774db1b7186695cc2223378.png)
+            
+        有时使用`pack`布局比较复杂，所以本例使用了`grid`布局
+        
+        
+        
