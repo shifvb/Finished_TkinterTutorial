@@ -1,10 +1,8 @@
 ### Event
 
-
 `tkinter`维护着一个`eventloop`。当用户触发了某事件(亦或其它情景)，此时一个`tk.Event`对象就产生了。
 
 -----------------------------
-
 
 1. 使用`bind()`方法绑定事件
 
@@ -12,7 +10,7 @@
         
         本例在`tk.Frame`上绑定了`<Button-1>`(即鼠标左键点击)事件到函数`callback()`上。
         
-        `<Button-2>`和`<Button-3>`分别对应了鼠标滚轮(如果有)点击和鼠标右键点击。
+        `<Button-2>`和`<Button-3>`分别对应了鼠标滚轮(如果有)点击和鼠标右键点击，而`<Motion>`对应鼠标移动。
     
             frame = tk.Frame(root, width=320, height=240, bg="cyan")
             frame.pack()
@@ -38,9 +36,33 @@
     
         ![](static/0259ef22e7b8a1ef183886cca9d95a09.png)
         
+2. `tk.Event`
 
-    2. 可以使用`bind()`方法绑定自定义事件，方法定义如下。
+    `tk.Event`是一个事件的container。在三种情况下会被创建：
     
+    * 鼠标事件`ButtonPress`，`ButtonRelease`，`Motion`，`Enter`，`Leave`，`MouseWheel`
+    * 键盘事件`KeyPress`，`KeyRelease`
+    * 窗口事件`Visibility`， `Unmap`，`Map`，`Expose`，`FocusIn`，`FocusOut`，`Circulate`，`Colormap`，`Gravity`，
+    `Reparent`，`Property`，`Destory`，`Activate`，`Deactivate`
+    
+    如果用户通过`bind()`，`bind_all()`，`bind_class()`或者`tag_bind()`方法绑定了一个回调函数，
+    那么当事件发生时这个回调函数会被调用，且第一个参数是一个`tk.Event`对象。这个对象里有如下常用属性：
+    
+    * `x`，`y`：当前鼠标坐标
+    * `x_root`，`y_root`：当前鼠标绝对坐标
+    * `char`：char(仅限键盘事件)
+    * `widget`：生成事件的控件
+    * `width`, `height`：控件新的高度和宽度(仅限Configure事件)
+    
+    `tk.Event`源码中有详细介绍，此处不再赘述。
+
+3. 自定义`bind()`方法中`sequence`参数
+
+    在`tkinter`的设计中，用户使用一个特殊格式的字符串来描述事件的种类(比如`"<Button-1>"`表示鼠标左键点击)。
+    既然了解了`tk.Event`，那么现在可以开始介绍如何构建`sequence`字符串了。
+
+    可以使用`bind()`方法绑定自定义事件，方法定义如下。
+        
         def bind(self, sequence=None, func=None, add=None):
             """Bind to this widget at event SEQUENCE a call to function FUNC.
     
