@@ -29,6 +29,8 @@
         
         `<Key>`默认捕捉所有键盘按键，如果需要捕捉特定按键可以更具体一些，比如`<Key-w>`(小写w)，`<Key-Up>`(上方向键)。
         
+            frame = tk.Frame(root, width=320, height=240, bg="cyan")
+            frame.pack()
             def callback(event):
                 root.title("{} {}".format(event.char, event))
             frame.bind("<Key>", callback)
