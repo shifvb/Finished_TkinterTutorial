@@ -44,6 +44,3 @@
         tk.Label(root, text="Hello Tkinter!", font=("Courier", 20, "bold")).pack()
     
     ![](static/21330a6bcbe5bb1dbcf1105ee2d30192.png)
-     
-    
-   
