@@ -60,30 +60,3 @@
             app = App()
             
     ![](static/c110e39d7690db69b572ddb616f1fd87.png)
-
-
-### Import 也是有风格的，你可以自己选用
-
-* 比如直接导入到当前命名空间
-
-        from tkinter import *
-    
-* 还有这种我比较喜欢的
-        
-        import tkinter as tk
-        
-* 还有特麻烦没见过别人用的
-
-        import tkinter
-
-
-### pack的不同风格
-
-* 这种用于日后引用的
-
-        btn = tk.Button(root, text="click me!")
-        btn.pack()
-        
-* 这种一次性的
-        
-        tk.Button(root, text="click me!").pack()
