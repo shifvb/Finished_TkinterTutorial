@@ -1,40 +1,17 @@
 ### 标签(Label)
 
+`tk.Label`的作用主要是显示一行文字。
+
 ---------------------------
+1. 使用`height`和`width`属性控制`tk.Label`的宽度和高度
 
-### 声明：
+    设置了背景色方便对比。
     
-    label = tk.Label(root, text="This is a label.")
-
-### 可用属性：
+    第一个`Label`没有设置宽度和高度，那么这个控件的“默认空间使用策略”是占用尽量小的空间，但是要将其中的文字完全显示出来。
     
-    class Label(Widget):
-        """Label widget which can display text and bitmaps."""
-        def __init__(self, master=None, cnf={}, **kw):
-            """Construct a label widget with the parent MASTER.
+    第二个`Label`设置了宽度和高度，但是因为设定的宽度比较小，所以内部文字就没有显示完全。
     
-            STANDARD OPTIONS
-    
-                activebackground, activeforeground, anchor,
-                background, bitmap, borderwidth, cursor,
-                disabledforeground, font, foreground,
-                highlightbackground, highlightcolor,
-                highlightthickness, image, justify,
-                padx, pady, relief, takefocus, text,
-                textvariable, underline, wraplength
-    
-            WIDGET-SPECIFIC OPTIONS
-    
-                height, state, width
-    
-            """
-            Widget.__init__(self, master, 'label', cnf, kw)
-            
-### 属性示例：
-
-1. `height`和`width`:
-
-    这两个属性决定了组件的宽和高(字符)。为了显示效果，使用`bg`设置了背景色
+    第三个`Label`也设置了宽度和高度。因为设定的宽度比较大，所以会留出一些空白区域。
 
         tk.Label(root, text="Hello Tkinter!", bg="red").pack()
         tk.Label(root, text="Hello Tkinter!", width=8, height=2, bg="#7777dd").pack()
@@ -42,9 +19,11 @@
         
     ![](static/24596b1c9f68b9ed79fc45ca9dbfacd5.png)
     
-2. `bg`和`fg`:
+2. 使用`bg`和`fg`属性设置`Label`的前景色和背景色:
+
+    设置颜色，可以使用英文名称，比如`yellow`，`gray`。
     
-    前景色和背景色
+    对于任意颜色，可以使用十六进制字符串表示，比如`#ffffff`。
     
         tk.Label(root, text="Hello Tkinter!").pack()
         tk.Label(root, text="Hello Tkinter!", bg="gray").pack()
@@ -52,7 +31,7 @@
 
     ![](static/c5699c2452b7536092540a17a7149473.png)
     
-3. `font`:
+3. 使用`font`:
 
     设置字体样式
     
