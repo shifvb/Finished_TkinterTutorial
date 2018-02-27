@@ -31,12 +31,15 @@
 
     ![](static/c5699c2452b7536092540a17a7149473.png)
     
-3. 使用`font`:
-
-    设置字体样式
+3. 使用`font`属性设置显示字体大小和样式:
     
-        tk.Label(root, text="Hello Tkinter!").pack()
+    一种简便的表示方法是使用一个含有三个元素的`tuple`表示字体样式：(`{font-family}`, `{font-size}`, `{font-weight}`)
+    
+    而另一种是创建`tk.font.Font`对象，在初始化时传入关键字参数。
+    
         from tkinter.font import Font
+        from tkinter import font
+        tk.Label(root, text="Hello Tkinter!").pack()
         tk.Label(root, text="Hello Tkinter!", font=Font(family="times", size=30, weight=font.BOLD)).pack()
         tk.Label(root, text="Hello Tkinter!", font=("Courier", 20, "bold")).pack()
     
