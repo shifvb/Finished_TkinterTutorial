@@ -18,3 +18,19 @@
         tk.Label(textvariable=v).pack()
         
     ![](static/74f4e1c062ceb6ef5bc41c2354de9932.png)
+    
+2. 使用`variable`属性绑定的变量改变单选状态
+
+    改变绑定变量的值，单选按钮的状态就会随之实时改变
+
+        # 声明变量
+        v = tk.IntVar(value=0)
+        # 两个单选按钮，因为variable都被设为v，而value属性设置成不同值，所以呈现“单选”效果
+        tk.Radiobutton(root, text="male", variable=v, value=1).pack()
+        tk.Radiobutton(root, text="female", variable=v, value=2).pack()
+        # 点击按钮改变变量值
+        tk.Button(root, text="button", command=lambda: v.set(1)).pack()
+        # 查看变量值
+        tk.Label(textvariable=v).pack()
+    
+    ![](static/03f4ff9028dc70fb4fa55cc7f2720e04.png)
