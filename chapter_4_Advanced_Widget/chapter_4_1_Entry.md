@@ -3,7 +3,6 @@
 `Entry`被用来设计输入单行文本
 
 ----------------------------
-
 1. 设置`textvariable`属性获得输入框内容
 
     绑定一个变量到`tk.Entry`实例的`textvariable`属性上，然后对变量使用`get()`方法：
@@ -144,7 +143,7 @@
     
     但是这样并不能实现实时验证用户输入。比如我们的目标是让用户只输入数字。当用户首先输入了`2018`，接着输入了一个非数字(比如"年")的时候，
     `validate_callback()`被调用，而此时通过`v.get()`只能得到字符串`2018`，并不能得到用户当前要输入的字符，
-    从而无从判断！解决方法是对验证函数使用`root.register()`进行包装(可以理解成装饰器)。
+    从而无从判断！解决方法是对验证函数使用`root.register()`进行包装。
     
     格式为：`validatecommand = root.register(validate_callback, param1, param2, ...)`，
     调用时`param1`，`param2...`会被传入到`validate_callback`中
