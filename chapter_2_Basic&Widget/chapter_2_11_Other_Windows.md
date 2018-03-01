@@ -28,10 +28,10 @@
 
     使用`colorchooser`的`askcolor()`方法询问用户颜色
 
-    from tkinter import colorchooser
-    def callback():
-        filename = colorchooser.askcolor()
-        print(filename)
-    tk.Button(root, text="button", command=callback).pack()
+        from tkinter import colorchooser
+        def callback():
+            filename = colorchooser.askcolor()
+            print(filename)
+        tk.Button(root, text="button", command=callback).pack()
 
     ![](static/dd48bac77e5bc7a5255a0ad8e4a2c651.png)
