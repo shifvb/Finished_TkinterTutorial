@@ -1,7 +1,6 @@
 ### MessageBoxes
 
 ------------------------------
-
 1. `showinfo()`， `showwarning()`和`showerror()`
 
     `tkinter.messagebox`共有3个`showxxx()`的函数:

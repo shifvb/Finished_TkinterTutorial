@@ -3,8 +3,6 @@
 Toplevel会显示出一个独立的窗口
 
 ---------------------------
-### 使用模式
-
 1. 点击按钮弹出
 
         root = tk.Tk()
@@ -19,5 +17,3 @@ Toplevel会显示出一个独立的窗口
         tk.Button(root, text="click me", command=btn_callback).pack()
     
     ![](static/b70cba2b4932eb81680b524210a7f386.png)
-        
-
