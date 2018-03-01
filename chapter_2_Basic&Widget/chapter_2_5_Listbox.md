@@ -2,10 +2,24 @@
 
 相对于单选按钮/复选按钮，列表框可以容纳更多的选项。
 
-此外，`Listbox`频繁和`Scrollbar`(滚动条)共同使用，详见第四章Scrollbar一节。
 
 -----------------------------
-1. 使用`insert()`方法插入
+1. 设置`width`和`height`属性调节大小
+
+    设置`width`(按字符计)和`height`(按行计)属性，直接调整大小。
+    
+    此外，`Listbox`可以和`Scrollbar`(滚动条)共同使用以显示更多项，详见第四章Scrollbar一节。
+        
+        listbox = tk.Listbox(root, width=18, height=5)
+        listbox.pack()
+        listbox.insert(tk.END, "Ball")
+        listbox.insert(tk.END, "Doge")
+        listbox.insert(tk.END, "Neko")
+        listbox.insert(tk.END, "Usagi")
+        
+    ![](static/5a6cbb34c259da2d22d03afc34bef9bd.png)
+
+2. 使用`insert()`方法插入
 
     一般使用`tk.END`在列表末尾插入项
         
@@ -19,7 +33,7 @@
     ![](static/bcdc429693b54c0646c45833e957b3e1.png)
     
     
-2. 使用`delete()`方法删除
+3. 使用`delete()`方法删除
     
     可以对函数`delete(self, first, last=None)`传入`first`和`last`，
     从而删除所有从`first`到`last`的项(包括`last`)：
@@ -42,7 +56,7 @@
         
     ![](static/ec56a0be73c2833a0d24dab9c610563a.png)
     
-3. 使用`curselection()`方法获得当前用户选择项的列表
+4. 使用`curselection()`方法获得当前用户选择项的列表
     
     返回的列表是一个`int`类型组成的`tuple`，从零开始计数
     
@@ -57,7 +71,7 @@
     
     ![](static/5a468c5dd6498b9ffedb5091d5d7d37e.png)
 
-4. 设置`selectmode`属性控制用户选择模式
+5. 设置`selectmode`属性控制用户选择模式
 
     从单选到多选依次为：
     
