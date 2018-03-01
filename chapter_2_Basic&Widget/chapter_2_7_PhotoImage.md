@@ -48,4 +48,3 @@
         tk.Label(root, image=photo, text="这是22 & 33", compound=tk.CENTER, font=("华康少女", 20)).pack()
     
     ![](static/2fb851ba8b101c19596187e4d2bcaa38.png)
-    
