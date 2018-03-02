@@ -5,7 +5,7 @@
 ---------------------
 1. 使用并发解决
     
-    比如说，我们需要做一件耗时3s的工作,那么用户直接按下按钮后，界面就会卡顿5s，用户体验不好。
+    比如说，我们需要做一件耗时3s的工作,那么用户直接按下按钮后，界面就会卡顿3s，用户体验不好。
     
         def callback():
             time.sleep(3)  # do something network I/O or database connection
