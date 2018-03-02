@@ -9,7 +9,7 @@
     
         def callback():
             time.sleep(3)  # do something network I/O or database connection
-            result = "The time-consuming process result"
+            result = "The time-consuming process result\n"
             text.delete("1.0", tk.END)  # show the result
             text.insert("1.0", result)
         tk.Button(root, text="button", command=callback).pack()
@@ -23,7 +23,7 @@
         def callback():
             def _():
                 time.sleep(3)  # do something network I/O or database connection
-                result = "The time-consuming process result"
+                result = "The time-consuming process result\n"
                 text.delete("1.0", tk.END)  # show the result
                 text.insert("1.0", result)
             threading.Thread(target=_).start()
@@ -32,3 +32,5 @@
         text.pack()
 
     ![](static/8e286f0c87292ec8d733e89e790f7cbb.gif)
+    
+    ![](static/0f696abf81fca670c035c9ff75fbdc6f.gif)
