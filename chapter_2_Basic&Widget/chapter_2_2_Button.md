@@ -63,3 +63,11 @@
         tk.Button(root, text="sunken", relief="sunken").pack()
         
     ![](static/db2a68658982a0116e84bc0270844f2e.png)
+    
+6. 设置`state`属性改变按钮可用状态
+
+    按钮的默认状态为`state`=`tk.NORMAL`, 如果遇到了不想让按钮激活的情况，可以设置`state`=`tk.DISABLED`
+    
+        tk.Button(text='button', state=tk.DISABLED).pack()
+
+    ![](static/3017628565b2233144d7fe3f700a3d14.png)
