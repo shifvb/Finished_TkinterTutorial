@@ -41,18 +41,25 @@
     
 2. `tk.Scale`
 
-    使用拖动方式确定用户输入，可以使用`from_`属性和`to`属性指定值域，而`orient`属性指定方向
-    
-        s = tk.Scale(root, from_=-4, to=4, orient=tk.HORIZONTAL)
-        s.pack()
-        # 显示当前Scale的值
-        label = tk.Label(root, text="current value")
-        label.pack()
-        def btn_callback():
-            label.configure(text="current value: {}".format(s.get()))
-        tk.Button(root, text="show current value", command=btn_callback).pack()
+    `tk.Scale`可以方便地生成一个限定范围的数字区间供用户选择。
 
-    ![](static/15af3b304ba161623074dae16f2fc836.png)
+    * `from_`：最小值
+    * `to`：最大值
+    * `resolution`：拖动步长
+    * `length`：控件宽度(按像素计)
+    * `orient`：指定方向(水平/竖直)
+    * `command`：当用户拖动`Scale`中间小条的位置时会调用回调函数，且调用时附带一个参数，即当前`Scale`的值。
+    
+    此外，使用`Scale`的`get()`和`set()`方法可以查看和控制当前值。
+
+        def callback(*args):
+            v.set("current value: {}".format(s.get()))
+        s = tk.Scale(root, from_=3, to=40, resolution=0.5, length=200, orient=tk.HORIZONTAL, command=callback)
+        s.pack()
+        tk.Label(root, textvariable=v).pack()  # 用于显示当前Scale的值的label
+        callback()
+
+    ![](static/42ced863707e176d7214bbda792b010a.png)
 
 3. `tk.OptionMenu`
 
